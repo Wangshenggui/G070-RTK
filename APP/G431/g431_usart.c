@@ -83,10 +83,17 @@ void USART1_IDLE_Handler()
             
             HAL_NVIC_SystemReset();
         }
-        else if(USART1_RxStruct.Buff[0]==0xEB 
-            && USART1_RxStruct.Buff[USART1_RxStruct.Rx_len-1]==0x90)
+        else if(
+            USART1_RxStruct.Buff[0]=='$' 
+            && USART1_RxStruct.Buff[1]=='S' 
+            && USART1_RxStruct.Buff[2]=='L' 
+            && USART1_RxStruct.Buff[3]=='A' 
+            && USART1_RxStruct.Buff[4]=='V' 
+            && USART1_RxStruct.Buff[5]=='E' 
+            && USART1_RxStruct.Buff[USART1_RxStruct.Rx_len-1]=='\n' 
+        )
         {
-            
+            HAL_UART_Transmit(&huart3, USART1_RxStruct.Buff, strlen((char*)USART1_RxStruct.Buff),1000);
         }
         //RTKÄ£¿é
         else
