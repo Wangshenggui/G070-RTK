@@ -83,6 +83,11 @@ void USART1_IDLE_Handler()
             
             HAL_NVIC_SystemReset();
         }
+        else if(USART1_RxStruct.Buff[0]==0xEB 
+            && USART1_RxStruct.Buff[USART1_RxStruct.Rx_len-1]==0x90)
+        {
+            
+        }
         //RTKÄ£¿é
         else
         {
