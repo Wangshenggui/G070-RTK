@@ -1,0 +1,258 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * File Name          : app_freertos.c
+  * Description        : Code for freertos applications
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2024 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+
+/* Includes ------------------------------------------------------------------*/
+#include "FreeRTOS.h"
+#include "task.h"
+#include "main.h"
+#include "cmsis_os.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "usart.h"
+#include "g431_usart.h"
+#include "4gmodule.h"
+#include "rtk.h"
+#include <string.h>
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+/* USER CODE BEGIN Variables */
+extern //判断指令类型
+uint8_t OrderType;
+extern //判断返回信息标志
+uint8_t ReturnFlag;
+extern //判断是内部发送还是通过G431接收的
+uint8_t InsideOrOutside;
+/* USER CODE END Variables */
+osThreadId G431_TaskHandle;
+osThreadId Module4G_TaskHandle;
+osThreadId RTK_TaskHandle;
+osTimerId Timer01Handle;
+
+/* Private function prototypes -----------------------------------------------*/
+/* USER CODE BEGIN FunctionPrototypes */
+
+/* USER CODE END FunctionPrototypes */
+
+void StartG431_Task(void const * argument);
+void StartModule4G_Task(void const * argument);
+void StartRTK_Task(void const * argument);
+void Callback01(void const * argument);
+
+void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
+
+/**
+  * @brief  FreeRTOS initialization
+  * @param  None
+  * @retval None
+  */
+void MX_FREERTOS_Init(void) {
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* USER CODE BEGIN RTOS_MUTEX */
+    /* add mutexes, ... */
+  /* USER CODE END RTOS_MUTEX */
+
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
+    /* add semaphores, ... */
+  /* USER CODE END RTOS_SEMAPHORES */
+
+  /* Create the timer(s) */
+  /* definition and creation of Timer01 */
+  osTimerDef(Timer01, Callback01);
+  Timer01Handle = osTimerCreate(osTimer(Timer01), osTimerOnce, NULL);
+
+  /* USER CODE BEGIN RTOS_TIMERS */
+    /* start timers, add new ones, ... */
+  /* USER CODE END RTOS_TIMERS */
+
+  /* USER CODE BEGIN RTOS_QUEUES */
+    /* add queues, ... */
+  /* USER CODE END RTOS_QUEUES */
+
+  /* Create the thread(s) */
+  /* definition and creation of G431_Task */
+  osThreadDef(G431_Task, StartG431_Task, osPriorityNormal, 0, 512);
+  G431_TaskHandle = osThreadCreate(osThread(G431_Task), NULL);
+
+  /* definition and creation of Module4G_Task */
+  osThreadDef(Module4G_Task, StartModule4G_Task, osPriorityBelowNormal, 0, 256);
+  Module4G_TaskHandle = osThreadCreate(osThread(Module4G_Task), NULL);
+
+  /* definition and creation of RTK_Task */
+  osThreadDef(RTK_Task, StartRTK_Task, osPriorityIdle, 0, 256);
+  RTK_TaskHandle = osThreadCreate(osThread(RTK_Task), NULL);
+
+  /* USER CODE BEGIN RTOS_THREADS */
+    /* add threads, ... */
+  /* USER CODE END RTOS_THREADS */
+
+}
+
+/* USER CODE BEGIN Header_StartG431_Task */
+/**
+  * @brief  Function implementing the G431_Task thread.
+  * @param  argument: Not used
+  * @retval None
+  */
+/* USER CODE END Header_StartG431_Task */
+void StartG431_Task(void const * argument)
+{
+  /* USER CODE BEGIN StartG431_Task */
+    /* Infinite loop */
+    for (;;)
+    {
+        if (myOSOK == BinarySemaphore.G431_Rx4GBinarySemHandle)
+        {
+            BinarySemaphore.G431_Rx4GBinarySemHandle=0;
+            
+            taskENTER_CRITICAL();
+            //向4G模块发送指令
+            HAL_UART_Transmit_DMA(&huart2, USART1_RxStruct.Buff, USART1_RxStruct.Rx_len);
+            HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_15);
+            taskEXIT_CRITICAL();
+        }
+
+        osDelay(1);
+    }
+  /* USER CODE END StartG431_Task */
+}
+
+/* USER CODE BEGIN Header_StartModule4G_Task */
+/**
+* @brief Function implementing the Module4G_Task thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartModule4G_Task */
+void StartModule4G_Task(void const * argument)
+{
+  /* USER CODE BEGIN StartModule4G_Task */
+    /* Infinite loop */
+    for (;;)
+    {
+        if (myOSOK == BinarySemaphore.Module4G_RxBinarySemHandle)
+        {
+            BinarySemaphore.Module4G_RxBinarySemHandle=0;
+            
+            taskENTER_CRITICAL();
+            
+            //OK信息
+            if(ReturnFlag==1)
+            {
+                //配置完成后需要等待一段时间
+                osTimerStart(Timer01Handle,10000);//1000代表回调函数回调周期
+            }
+            //+GSTATE:6001（确认配置成功）
+            else if(ReturnFlag==2)
+            {
+                //处理返回信息
+                uint8_t buff[10] = { 0xAC,0x4F,0x4B,0x90 };
+                HAL_UART_Transmit(&huart1, buff, 4, 100);
+                HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_1);
+            }
+            else if(ReturnFlag==3)
+            {
+                //处理返回信息
+                uint8_t buff[10] = { 0xAC,'E','R','R',0x90 };
+                HAL_UART_Transmit(&huart1, buff, 5, 100);
+                HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_1);
+            }
+            else if(ReturnFlag==4)
+            {
+                //处理返回信息
+                HAL_UART_Transmit(&huart1, USART2_RxStruct.Buff, USART2_RxStruct.Rx_len, 1000);
+                HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_1);
+            }
+            
+            
+            taskEXIT_CRITICAL();
+        }
+        
+        osDelay(1);
+    }
+  /* USER CODE END StartModule4G_Task */
+}
+
+/* USER CODE BEGIN Header_StartRTK_Task */
+/**
+* @brief Function implementing the RTK_Task thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartRTK_Task */
+void StartRTK_Task(void const * argument)
+{
+  /* USER CODE BEGIN StartRTK_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+    if (myOSOK == BinarySemaphore.G431_RxRTKBinarySemHandle)
+    {
+        BinarySemaphore.G431_RxRTKBinarySemHandle=0;
+
+        taskENTER_CRITICAL();
+        //向RTK模块发送指令
+        HAL_UART_Transmit_DMA(&huart3, USART1_RxStruct.Buff, USART1_RxStruct.Rx_len);
+        taskEXIT_CRITICAL();
+    }
+    osDelay(1);
+  }
+  /* USER CODE END StartRTK_Task */
+}
+
+/* Callback01 function */
+void Callback01(void const * argument)
+{
+  /* USER CODE BEGIN Callback01 */
+    taskENTER_CRITICAL();
+    InsideOrOutside=0;
+    //发送查询命令
+    HAL_UART_Transmit(&huart2, (uint8_t *)"AT*GSTATE?\r\n", strlen("AT*GSTATE?\r\n"), 1000);
+    HAL_UART_Transmit(&huart2, (uint8_t *)"AT*GSTATE?\r\n", strlen("AT*GSTATE?\r\n"), 1000);
+    HAL_UART_Transmit(&huart2, (uint8_t *)"AT*GSTATE?\r\n", strlen("AT*GSTATE?\r\n"), 1000);
+    HAL_UART_Transmit(&huart2, (uint8_t *)"AT*GSTATE?\r\n", strlen("AT*GSTATE?\r\n"), 1000);
+    HAL_UART_Transmit(&huart2, (uint8_t *)"AT*GSTATE?\r\n", strlen("AT*GSTATE?\r\n"), 1000);
+    taskEXIT_CRITICAL();
+  /* USER CODE END Callback01 */
+}
+
+/* Private application code --------------------------------------------------*/
+/* USER CODE BEGIN Application */
+
+/* USER CODE END Application */
+
