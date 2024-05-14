@@ -110,8 +110,8 @@ int main(void)
   MX_USART3_UART_Init();
   MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
-    __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
-    HAL_UART_Receive_DMA(&huart1, USART1_RxStruct.Rx_Buff, 200);
+//    __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
+//    HAL_UART_Receive_DMA(&huart1, USART1_RxStruct.Rx_Buff, 200);
 
     __HAL_UART_ENABLE_IT(&huart2, UART_IT_IDLE);
     HAL_UART_Receive_DMA(&huart2, USART2_RxStruct.Rx_Buff, 200);
@@ -203,6 +203,9 @@ int main(void)
     START:
     HAL_GPIO_WritePin(RTK_LED_GPIO_Port,RTK_LED_Pin,GPIO_PIN_SET);
     HAL_GPIO_WritePin(Module4G_LED_GPIO_Port,Module4G_LED_Pin,GPIO_PIN_SET);
+    
+    __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
+    HAL_UART_Receive_DMA(&huart1, USART1_RxStruct.Rx_Buff, 200);
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */

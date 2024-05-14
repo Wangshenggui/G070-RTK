@@ -1,9 +1,9 @@
 rtk\cmsis_os.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c
-rtk\cmsis_os.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\string.h
+rtk\cmsis_os.o: D:\Keil\ARM\ARMCC\Bin\..\include\string.h
 rtk\cmsis_os.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 rtk\cmsis_os.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-rtk\cmsis_os.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stddef.h
-rtk\cmsis_os.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
+rtk\cmsis_os.o: D:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
+rtk\cmsis_os.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 rtk\cmsis_os.o: ../Core/Inc/FreeRTOSConfig.h
 rtk\cmsis_os.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 rtk\cmsis_os.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
