@@ -160,13 +160,13 @@ int main(void)
     while(1)
     {
         static uint8_t bbb = 0;
-        if(bbb ++ == 150)
+        if(bbb ++ == 18)
         {
             bbb = 0;
             goto START;
         }
         
-        HAL_Delay(100);
+        HAL_Delay(1000);
         
         switch(ConfigurationFlag)
         {
