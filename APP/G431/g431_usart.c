@@ -93,7 +93,7 @@ void USART1_IDLE_Handler()
             && USART1_RxStruct.Buff[USART1_RxStruct.Rx_len-1]=='\n' 
         )
         {
-            //HAL_UART_Transmit(&huart2, USART1_RxStruct.Buff, USART1_RxStruct.Rx_len,1000);
+            HAL_UART_Transmit(&huart2, USART1_RxStruct.Buff, USART1_RxStruct.Rx_len,1000);
         }
         //RTKÄ£¿é
         else
