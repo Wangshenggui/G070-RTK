@@ -56,7 +56,7 @@ I (../Core/Inc/iwdg.h)(0x6642ED90)
 I (../Core/Inc/usart.h)(0x6642ED90)
 I (../Core/Inc/gpio.h)(0x6642ED90)
 I (../APP/G431/g431_usart.h)(0x6642ED90)
-I (../APP/4G/4gmodule.h)(0x6642ED90)
+I (../APP/4G/4gmodule.h)(0x66483896)
 I (../APP/RTK/rtk.h)(0x66483712)
 I (../APP/FLASH/flash.h)(0x6642ED90)
 I (D:\Keil\ARM\ARMCC\include\stdio.h)(0x657BFCFC)
@@ -100,7 +100,7 @@ I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h)(0x6642ED91)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h)(0x6642ED91)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h)(0x6642ED91)
 I (D:\Keil\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
-F (../Core/Src/app_freertos.c)(0x664836F5)(--c99 -c --cpu Cortex-M0+ -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ../APP/G431 -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM0 -I ../APP/4G -I ../APP/RTK -I ../Public -I ../APP/NMEA -I ../APP/FLASH -I ../APP/BASE64-I.\RTE\_RTK-ID:\Keil\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Keil\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32G070xx -DUSE_HAL_DRIVER -DSTM32G070xx-o rtk\app_freertos.o --omf_browse rtk\app_freertos.crf --depend rtk\app_freertos.d)
+F (../Core/Src/app_freertos.c)(0x66483BD8)(--c99 -c --cpu Cortex-M0+ -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ../APP/G431 -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM0 -I ../APP/4G -I ../APP/RTK -I ../Public -I ../APP/NMEA -I ../APP/FLASH -I ../APP/BASE64-I.\RTE\_RTK-ID:\Keil\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Keil\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32G070xx -DUSE_HAL_DRIVER -DSTM32G070xx-o rtk\app_freertos.o --omf_browse rtk\app_freertos.crf --depend rtk\app_freertos.d)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6642ED91)
 I (D:\Keil\ARM\ARMCC\include\stddef.h)(0x57F606B8)
 I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -153,7 +153,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x6642ED91)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x6642ED91)
 I (../Core/Inc/usart.h)(0x6642ED90)
 I (../APP/G431/g431_usart.h)(0x6642ED90)
-I (../APP/4G/4gmodule.h)(0x6642ED90)
+I (../APP/4G/4gmodule.h)(0x66483896)
 I (../APP/RTK/rtk.h)(0x66483712)
 I (D:\Keil\ARM\ARMCC\include\string.h)(0x57F606B8)
 I (../APP/NMEA/nmea.h)(0x6642ED90)
@@ -313,7 +313,7 @@ I (D:\Keil\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (../Core/Inc/stm32g0xx_it.h)(0x6642ED90)
 I (../APP/G431/g431_usart.h)(0x6642ED90)
 I (../Core/Inc/usart.h)(0x6642ED90)
-I (../APP/4G/4gmodule.h)(0x6642ED90)
+I (../APP/4G/4gmodule.h)(0x66483896)
 I (../APP/RTK/rtk.h)(0x66483712)
 F (../Core/Src/stm32g0xx_hal_msp.c)(0x6642ED90)(--c99 -c --cpu Cortex-M0+ -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ../APP/G431 -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM0 -I ../APP/4G -I ../APP/RTK -I ../Public -I ../APP/NMEA -I ../APP/FLASH -I ../APP/BASE64-I.\RTE\_RTK-ID:\Keil\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Keil\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32G070xx -DUSE_HAL_DRIVER -DSTM32G070xx-o rtk\stm32g0xx_hal_msp.o --omf_browse rtk\stm32g0xx_hal_msp.crf --depend rtk\stm32g0xx_hal_msp.d)
 I (../Core/Inc/main.h)(0x6648359C)
@@ -484,8 +484,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x6642ED91)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x6642ED91)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x6642ED91)
 I (../APP/FLASH/flash.h)(0x6642ED90)
-F (..\APP\4G\4GModule.c)(0x6648359C)(--c99 -c --cpu Cortex-M0+ -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ../APP/G431 -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM0 -I ../APP/4G -I ../APP/RTK -I ../Public -I ../APP/NMEA -I ../APP/FLASH -I ../APP/BASE64-I.\RTE\_RTK-ID:\Keil\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Keil\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32G070xx -DUSE_HAL_DRIVER -DSTM32G070xx-o rtk\4gmodule.o --omf_browse rtk\4gmodule.crf --depend rtk\4gmodule.d)
-I (..\APP\4G\4gmodule.h)(0x6642ED90)
+F (..\APP\4G\4GModule.c)(0x66483896)(--c99 -c --cpu Cortex-M0+ -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc -I ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I ../Drivers/CMSIS/Include -I ../APP/G431 -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM0 -I ../APP/4G -I ../APP/RTK -I ../Public -I ../APP/NMEA -I ../APP/FLASH -I ../APP/BASE64-I.\RTE\_RTK-ID:\Keil\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Keil\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="523" -D_RTE_ -DSTM32G070xx -DUSE_HAL_DRIVER -DSTM32G070xx-o rtk\4gmodule.o --omf_browse rtk\4gmodule.crf --depend rtk\4gmodule.d)
+I (..\APP\4G\4gmodule.h)(0x66483896)
 I (../Core/Inc/main.h)(0x6648359C)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h)(0x6642ED91)
 I (../Core/Inc/stm32g0xx_hal_conf.h)(0x6642ED90)
@@ -524,6 +524,7 @@ I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h)(0x6642ED91)
 I (D:\Keil\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (../Core/Inc/usart.h)(0x6642ED90)
 I (D:\Keil\ARM\ARMCC\include\string.h)(0x57F606B8)
+I (D:\Keil\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6642ED91)
 I (../Core/Inc/FreeRTOSConfig.h)(0x6642ED90)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6642ED91)

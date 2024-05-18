@@ -224,19 +224,35 @@ void StartModule4G_Task(void const * argument)
             
             taskEXIT_CRITICAL();
         }
-        if (myOSOK == AcquireBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle))
+//        if (myOSOK == AcquireBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle))
         {
             DeleteBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle);
+            DeleteBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
             taskENTER_CRITICAL();
             
+            for (int i = 0; i < 12; i++)
+            {
+                ParseModules4G((char*)USART2_RxStruct.Buff, i);
+            }
+            
+            
+            Modules4G_Struct.TxBuff[0] = 0xeb;
+            Modules4G_Struct.TxBuff[1] = Modules4G_Struct.ControlByte;
+            Modules4G_Struct.TxBuff[2] = Modules4G_Struct.DirByte;
+            Modules4G_Struct.TxBuff[3] = Modules4G_Struct.Speed[0];
+            Modules4G_Struct.TxBuff[4] = Modules4G_Struct.Speed[1];
+            Modules4G_Struct.TxBuff[5] = Modules4G_Struct.Speed[2];
+            Modules4G_Struct.TxBuff[6] = Modules4G_Struct.Speed[3];
+            Modules4G_Struct.TxBuff[7] = 0x90;
+            
             //向控制板（大板）发送控制指令
-            HAL_UART_Transmit(&huart1, USART2_RxStruct.Buff, USART2_RxStruct.Rx_len,1000);
+            HAL_UART_Transmit(&huart1, Modules4G_Struct.TxBuff, 8,1000);
             
             taskEXIT_CRITICAL();
         }
         
 
-        osDelay(1);
+        osDelay(500);
     }
   /* USER CODE END StartModule4G_Task */
 }
@@ -292,7 +308,7 @@ void StartRTK_Task(void const * argument)
             sprintf(str,"%d-%lf-%lf\r\n",GPRMCH_Struct.Sec,GPRMCH_Struct.Longitude,GPRMCH_Struct.Latitude);
 //            HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str),1000);
             
-            HAL_UART_Transmit_DMA(&huart1, OutGNxxxData, 78);
+            HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
 
 //            BluetoothCopyRMCData();//蓝牙
 //            HAL_UART_Transmit_DMA(&huart1, OutGNRMCData, 27);

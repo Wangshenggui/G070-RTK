@@ -39,6 +39,7 @@ rtk\4gmodule.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
 rtk\4gmodule.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
 rtk\4gmodule.o: ../Core/Inc/usart.h
 rtk\4gmodule.o: D:\Keil\ARM\ARMCC\Bin\..\include\string.h
+rtk\4gmodule.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
 rtk\4gmodule.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 rtk\4gmodule.o: ../Core/Inc/FreeRTOSConfig.h
 rtk\4gmodule.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
