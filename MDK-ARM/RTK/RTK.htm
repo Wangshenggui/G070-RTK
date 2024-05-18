@@ -3,7 +3,7 @@
 <title>Static Call Graph - [RTK\RTK.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image RTK\RTK.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed May 15 13:00:06 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sat May 18 13:05:24 2024
 <BR><P>
 <H3>Maximum Stack Usage =       1072 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1653,8 +1653,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_freertos.o(.constdata)
 </UL>
-<P><STRONG><a name="[3e]"></a>StartModule4G_Task</STRONG> (Thumb, 124 bytes, Stack size 16 bytes, app_freertos.o(i.StartModule4G_Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = StartModule4G_Task &rArr; osTimerStart &rArr; xTimerGenericCommand &rArr; xQueueGenericSend &rArr; prvCopyDataToQueue &rArr; __aeabi_memcpy
+<P><STRONG><a name="[3e]"></a>StartModule4G_Task</STRONG> (Thumb, 154 bytes, Stack size 24 bytes, app_freertos.o(i.StartModule4G_Task))
+<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = StartModule4G_Task &rArr; osTimerStart &rArr; xTimerGenericCommand &rArr; xQueueGenericSend &rArr; prvCopyDataToQueue &rArr; __aeabi_memcpy
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
@@ -1791,7 +1791,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g070xx.o(RESET)
 </UL>
-<P><STRONG><a name="[110]"></a>USART2_IDLE_Handler</STRONG> (Thumb, 224 bytes, Stack size 24 bytes, 4gmodule.o(i.USART2_IDLE_Handler))
+<P><STRONG><a name="[110]"></a>USART2_IDLE_Handler</STRONG> (Thumb, 242 bytes, Stack size 24 bytes, 4gmodule.o(i.USART2_IDLE_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = USART2_IDLE_Handler &rArr; HAL_UART_Receive_DMA &rArr; UART_Start_Receive_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vClearInterruptMaskFromISR
@@ -1989,7 +1989,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__support_ldexp
 </UL>
 
-<P><STRONG><a name="[5a]"></a>main</STRONG> (Thumb, 510 bytes, Stack size 608 bytes, main.o(i.main))
+<P><STRONG><a name="[5a]"></a>main</STRONG> (Thumb, 508 bytes, Stack size 608 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 960 + Unknown Stack Size
 <LI>Call Chain = main &rArr; ParseCORS &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2292,8 +2292,8 @@ Global Symbols
 <P><STRONG><a name="[151]"></a>xPortStartScheduler</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, port.o(i.xPortStartScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xPortStartScheduler &rArr; vPortSetupTimerInterrupt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__asm___6_port_c_39a90d8d__prvPortStartFirstTask
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortSetupTimerInterrupt
+<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortSetupTimerInterrupt
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__asm___6_port_c_39a90d8d__prvPortStartFirstTask
 </UL>
 <BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>

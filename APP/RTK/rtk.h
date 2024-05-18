@@ -7,8 +7,9 @@
 
 extern DMA_HandleTypeDef hdma_usart3_rx;
 
-
+#ifndef Rx_LENG
 #define Rx_LENG 400
+#endif
 
 typedef struct
 {

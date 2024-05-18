@@ -94,15 +94,14 @@ void USART2_IDLE_Handler(void)
         {
             ConfigurationFlag = 3;
         }
-//        else if(//SystemOK!
-//            USART2_RxStruct.Buff[0]=='S' 
-//            && USART2_RxStruct.Buff[1]=='y' 
-//            && USART2_RxStruct.Buff[2]=='s' 
-//            && USART2_RxStruct.Buff[USART2_RxStruct.Rx_len-1]=='!' 
-//        )
-//        {
-//            HAL_GPIO_TogglePin(Module4G_LED_GPIO_Port,Module4G_LED_Pin);
-//        }
+        //接收控制指令
+        else if(USART2_RxStruct.Buff[0]==0xeb && USART2_RxStruct.Buff[USART2_RxStruct.Rx_len - 1]==0x90)
+        {
+            //释放信号量
+            ReleaseBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle);
+        }
+        
+        
         
         HAL_GPIO_TogglePin(Module4G_LED_GPIO_Port,Module4G_LED_Pin);
         

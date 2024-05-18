@@ -171,6 +171,7 @@ void StartG431_Task(void const * argument)
             
             taskEXIT_CRITICAL();
         }
+        
 
         osDelay(1);
     }
@@ -220,6 +221,16 @@ void StartModule4G_Task(void const * argument)
                 HAL_UART_Transmit(&huart1, USART2_RxStruct.Buff, USART2_RxStruct.Rx_len, 1000);
             }
 
+            
+            taskEXIT_CRITICAL();
+        }
+        if (myOSOK == AcquireBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle))
+        {
+            DeleteBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle);
+            taskENTER_CRITICAL();
+            
+            //向控制板（大板）发送控制指令
+            HAL_UART_Transmit(&huart1, USART2_RxStruct.Buff, USART2_RxStruct.Rx_len,1000);
             
             taskEXIT_CRITICAL();
         }
