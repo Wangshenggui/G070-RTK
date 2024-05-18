@@ -224,7 +224,7 @@ void StartModule4G_Task(void const * argument)
             
             taskEXIT_CRITICAL();
         }
-//        if (myOSOK == AcquireBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle))
+        if (myOSOK == AcquireBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle))
         {
             DeleteBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle);
             DeleteBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
@@ -252,7 +252,7 @@ void StartModule4G_Task(void const * argument)
         }
         
 
-        osDelay(500);
+        osDelay(1);
     }
   /* USER CODE END StartModule4G_Task */
 }

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [RTK\RTK.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image RTK\RTK.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sat May 18 13:25:45 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sat May 18 14:34:44 2024
 <BR><P>
 <H3>Maximum Stack Usage =       1072 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1659,7 +1659,7 @@ Global Symbols
 <P><STRONG><a name="[9]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, port.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g070xx.o(RESET)
 </UL>
-<P><STRONG><a name="[3d]"></a>StartG431_Task</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, app_freertos.o(i.StartG431_Task))
+<P><STRONG><a name="[3d]"></a>StartG431_Task</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, app_freertos.o(i.StartG431_Task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = StartG431_Task &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
@@ -1669,7 +1669,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_freertos.o(.constdata)
 </UL>
-<P><STRONG><a name="[3e]"></a>StartModule4G_Task</STRONG> (Thumb, 204 bytes, Stack size 24 bytes, app_freertos.o(i.StartModule4G_Task))
+<P><STRONG><a name="[3e]"></a>StartModule4G_Task</STRONG> (Thumb, 208 bytes, Stack size 24 bytes, app_freertos.o(i.StartModule4G_Task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 344<LI>Call Chain = StartModule4G_Task &rArr; ParseModules4G &rArr; extractNumber &rArr; atoi &rArr; strtol &rArr; _strtoul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
@@ -2006,7 +2006,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__support_ldexp
 </UL>
 
-<P><STRONG><a name="[5a]"></a>main</STRONG> (Thumb, 508 bytes, Stack size 608 bytes, main.o(i.main))
+<P><STRONG><a name="[5a]"></a>main</STRONG> (Thumb, 510 bytes, Stack size 608 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 960 + Unknown Stack Size
 <LI>Call Chain = main &rArr; ParseCORS &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
