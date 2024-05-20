@@ -8,19 +8,28 @@
 extern DMA_HandleTypeDef hdma_usart2_rx;
 
 
-#define Rx_LENG 200
 
 typedef struct
 {
-    uint8_t Rx_Buff[Rx_LENG];
+    uint8_t Rx_Buff[200];
     uint8_t Rx_len;
-    uint8_t Buff[Rx_LENG];
+    uint8_t Buff[200];
 }USART2_RxStructure;
 extern USART2_RxStructure USART2_RxStruct;
 
+typedef struct
+{
+    uint8_t TxBuff[10];
+
+    uint8_t ControlByte : 4;
+    uint8_t DirByte : 4;
+    uint8_t Speed[4];
+}Modules4G_Structure;
+extern Modules4G_Structure Modules4G_Struct;
+
 
 void USART2_IDLE_Handler(void);
-
+void ParseModules4G(const char* string, int n);
 
 
 #endif
