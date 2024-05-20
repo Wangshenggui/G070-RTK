@@ -36,11 +36,11 @@ void USART2_IDLE_Handler(void)
         HAL_UART_DMAStop(&huart2);
 
         ///////////////////////
-        USART2_RxStruct.Rx_len = Rx_LENG - __HAL_DMA_GET_COUNTER(&hdma_usart2_rx);
+        USART2_RxStruct.Rx_len = 200 - __HAL_DMA_GET_COUNTER(&hdma_usart2_rx);
 
         //复制到缓冲区
         memcpy(USART2_RxStruct.Buff, USART2_RxStruct.Rx_Buff, USART2_RxStruct.Rx_len);
-        memset(USART2_RxStruct.Rx_Buff, 0, Rx_LENG);
+        memset(USART2_RxStruct.Rx_Buff, 0, 200);
 
         
         //4G模块接收信息
@@ -98,22 +98,13 @@ void USART2_IDLE_Handler(void)
             ConfigurationFlag = 3;
         }
         //接收控制指令
-        else if(USART2_RxStruct.Buff[0]=='{' && USART2_RxStruct.Buff[1]=='\"')
+        else if(USART2_RxStruct.Buff[0]=='{' \
+            && USART2_RxStruct.Buff[1]=='\"' \
+        && USART2_RxStruct.Buff[USART2_RxStruct.Rx_len - 1]=='}')
         {
-            for(uint16_t i = 0;i < (USART2_RxStruct.Rx_len - 10);i++)
-            {
-                if(USART2_RxStruct.Buff[i] == '{' \
-                    && USART2_RxStruct.Buff[i+1] == '\"' \
-                    && USART2_RxStruct.Buff[i+2] == 'n' \
-                    && USART2_RxStruct.Buff[i+3] == '1')
-                {
-                    //释放信号量
-                    ReleaseBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle);
-                }
-            }
-            
+            //释放信号量
+            ReleaseBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle);
         }
-        
         
         
         HAL_GPIO_TogglePin(Module4G_LED_GPIO_Port,Module4G_LED_Pin);
