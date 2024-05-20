@@ -31,7 +31,7 @@ void USART1_IDLE_Handler()
         HAL_UART_DMAStop(&huart1);
 
         ///////////////////////
-        USART1_RxStruct.Rx_len = Rx_LENG - __HAL_DMA_GET_COUNTER(&hdma_usart1_rx);
+        USART1_RxStruct.Rx_len = 200 - __HAL_DMA_GET_COUNTER(&hdma_usart1_rx);
 
         //¸´ÖÆµ½»º³åÇø
         memcpy(USART1_RxStruct.Buff, USART1_RxStruct.Rx_Buff, USART1_RxStruct.Rx_len);
@@ -84,13 +84,7 @@ void USART1_IDLE_Handler()
             HAL_NVIC_SystemReset();
         }
         else if(
-            USART1_RxStruct.Buff[0]=='$' 
-            && USART1_RxStruct.Buff[1]=='S' 
-            && USART1_RxStruct.Buff[2]=='L' 
-            && USART1_RxStruct.Buff[3]=='A' 
-            && USART1_RxStruct.Buff[4]=='V' 
-            && USART1_RxStruct.Buff[5]=='E' 
-            && USART1_RxStruct.Buff[USART1_RxStruct.Rx_len-1]=='\n' 
+            USART1_RxStruct.Buff[0]=='$'
         )
         {
 			

@@ -160,7 +160,7 @@ int main(void)
     while(1)
     {
         static uint8_t bbb = 0;
-        if(bbb ++ == 1)
+        if(bbb ++ == 3)
         {
             bbb = 0;
             goto START;
