@@ -144,8 +144,13 @@ int main(void)
     ParseCORS((char*)temp,4);
     ParseCORS((char*)temp,5);
     
+    
+    
     //进行数据加密
     sprintf((char*)temp,"%s:%s",CORS_Struct.Account,CORS_Struct.Password);
+    
+    HAL_UART_Transmit(&huart2, temp, strlen((char*)temp),1000);
+    
     base64_encode((uint8_t*)temp,(char*)base64);
     sprintf((char*)str,"%s\r\n",base64);
     
@@ -160,7 +165,7 @@ int main(void)
     while(1)
     {
         static uint8_t bbb = 0;
-        if(bbb ++ == 3)
+        if(bbb ++ == 18)
         {
             bbb = 0;
             goto START;

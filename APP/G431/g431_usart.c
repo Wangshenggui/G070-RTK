@@ -71,12 +71,14 @@ void USART1_IDLE_Handler()
             HAL_GPIO_TogglePin(Module4G_LED_GPIO_Port,Module4G_LED_Pin);
             
             sprintf((char*)temp,"%s",USART1_RxStruct.Buff);
+            HAL_UART_Transmit(&huart2, temp, strlen((char*)temp),1000);
             USER_FLASH_Write((uint8_t*)temp);
             
-            sprintf((char*)temp,"$CORS,0,4,9,Y2VkcjE3NjIyNjpobTBkY3ZudA==\r\n");
-            HAL_UART_Transmit(&huart2, temp, strlen((char*)temp),1000);
-            HAL_UART_Transmit(&huart2, temp, strlen((char*)temp),1000);
-            HAL_UART_Transmit(&huart2, temp, strlen((char*)temp),1000);
+//            sprintf((char*)temp,"$CORS,0,4,9,Y2VkcjE3NjIyNjpobTBkY3ZudA==\r\n");
+//            HAL_UART_Transmit(&huart2, temp, strlen((char*)temp),1000);
+//            HAL_UART_Transmit(&huart2, temp, strlen((char*)temp),1000);
+//            HAL_UART_Transmit(&huart2, temp, strlen((char*)temp),1000);
+            
             
             //RTK¸´Î»
             //HAL_UART_Transmit(&huart3, (uint8_t*)"RESET\r\n", strlen((char*)"RESET\r\n"),1000);
