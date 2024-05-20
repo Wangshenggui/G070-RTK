@@ -143,6 +143,8 @@ int main(void)
     ParseCORS((char*)temp,3);
     ParseCORS((char*)temp,4);
     ParseCORS((char*)temp,5);
+	
+	HAL_UART_Transmit(&huart2, CORS_Struct.Account, strlen((char*)CORS_Struct.Account),1000);
     
     
     
