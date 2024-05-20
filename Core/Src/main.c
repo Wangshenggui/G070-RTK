@@ -143,6 +143,8 @@ int main(void)
     ParseCORS((char*)temp,3);
     ParseCORS((char*)temp,4);
     ParseCORS((char*)temp,5);
+	
+	HAL_UART_Transmit(&huart2, CORS_Struct.Account, strlen((char*)CORS_Struct.Account),1000);
     
     //进行数据加密
     sprintf((char*)temp,"%s:%s",CORS_Struct.Account,CORS_Struct.Password);
@@ -160,7 +162,7 @@ int main(void)
     while(1)
     {
         static uint8_t bbb = 0;
-        if(bbb ++ == 3)
+        if(bbb ++ == 1)
         {
             bbb = 0;
             goto START;

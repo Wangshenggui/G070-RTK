@@ -73,7 +73,7 @@ void USART1_IDLE_Handler()
             sprintf((char*)temp,"%s",USART1_RxStruct.Buff);
             USER_FLASH_Write((uint8_t*)temp);
             
-            sprintf((char*)temp,"$CORS,0,4,9,Y2VkcjE3NjIyNjpobTBkY3ZudA==\r\n");
+            //sprintf((char*)temp,"$CORS,0,4,9,Y2VkcjE3NjIyNjpobTBkY3ZudA==\r\n");
             HAL_UART_Transmit(&huart2, temp, strlen((char*)temp),1000);
             HAL_UART_Transmit(&huart2, temp, strlen((char*)temp),1000);
             HAL_UART_Transmit(&huart2, temp, strlen((char*)temp),1000);
