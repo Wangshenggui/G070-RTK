@@ -141,14 +141,14 @@ void MX_FREERTOS_Init(void) {
 void StartG431_Task(void const * argument)
 {
   /* USER CODE BEGIN StartG431_Task */
-//    hiwdg.Instance = IWDG;
-//  hiwdg.Init.Prescaler = IWDG_PRESCALER_32;
-//  hiwdg.Init.Window = 1000;
-//  hiwdg.Init.Reload = 1000;
-//  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
+    hiwdg.Instance = IWDG;
+  hiwdg.Init.Prescaler = IWDG_PRESCALER_32;
+  hiwdg.Init.Window = 1000;
+  hiwdg.Init.Reload = 1000;
+  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+  {
+    Error_Handler();
+  }
     /* Infinite loop */
     for (;;)
     {
