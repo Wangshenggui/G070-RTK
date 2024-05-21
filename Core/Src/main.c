@@ -147,7 +147,6 @@ int main(void)
 	HAL_UART_Transmit(&huart2, CORS_Struct.Account, strlen((char*)CORS_Struct.Account),1000);
     
     
-    
     //进行数据加密
     sprintf((char*)temp,"%s:%s",CORS_Struct.Account,CORS_Struct.Password);
     
