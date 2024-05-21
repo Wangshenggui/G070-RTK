@@ -7,7 +7,7 @@ rtk\main.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h
 rtk\main.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g0xx.h
 rtk\main.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g070xx.h
 rtk\main.o: ../Drivers/CMSIS/Include/core_cm0plus.h
-rtk\main.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+rtk\main.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
 rtk\main.o: ../Drivers/CMSIS/Include/cmsis_version.h
 rtk\main.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 rtk\main.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -15,7 +15,7 @@ rtk\main.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 rtk\main.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/system_stm32g0xx.h
 rtk\main.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h
 rtk\main.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-rtk\main.o: D:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
+rtk\main.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stddef.h
 rtk\main.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h
 rtk\main.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc_ex.h
 rtk\main.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_gpio.h
@@ -35,7 +35,7 @@ rtk\main.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h
 rtk\main.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h
 rtk\main.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h
 rtk\main.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
-rtk\main.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+rtk\main.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdbool.h
 rtk\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 rtk\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 rtk\main.o: ../Core/Inc/FreeRTOSConfig.h
@@ -58,6 +58,6 @@ rtk\main.o: ../APP/G431/g431_usart.h
 rtk\main.o: ../APP/4G/4gmodule.h
 rtk\main.o: ../APP/RTK/rtk.h
 rtk\main.o: ../APP/FLASH/flash.h
-rtk\main.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdio.h
-rtk\main.o: D:\Keil\ARM\ARMCC\Bin\..\include\string.h
+rtk\main.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdio.h
+rtk\main.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\string.h
 rtk\main.o: ../APP/BASE64/base64.h

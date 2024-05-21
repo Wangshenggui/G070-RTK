@@ -1,8 +1,8 @@
 rtk\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/list.c
-rtk\list.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+rtk\list.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdlib.h
 rtk\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-rtk\list.o: D:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
-rtk\list.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+rtk\list.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stddef.h
+rtk\list.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
 rtk\list.o: ../Core/Inc/FreeRTOSConfig.h
 rtk\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 rtk\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

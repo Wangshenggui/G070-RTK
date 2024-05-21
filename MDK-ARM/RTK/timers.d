@@ -1,8 +1,8 @@
 rtk\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/timers.c
-rtk\timers.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+rtk\timers.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdlib.h
 rtk\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-rtk\timers.o: D:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
-rtk\timers.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+rtk\timers.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stddef.h
+rtk\timers.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
 rtk\timers.o: ../Core/Inc/FreeRTOSConfig.h
 rtk\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 rtk\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
