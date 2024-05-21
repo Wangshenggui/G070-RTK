@@ -152,7 +152,7 @@ void StartG431_Task(void const * argument)
     /* Infinite loop */
     for (;;)
     {
-//        HAL_IWDG_Refresh(&hiwdg);
+        HAL_IWDG_Refresh(&hiwdg);
         if (myOSOK == AcquireBinarySemaphore(BinarySemaphore.G431_Rx4GBinarySemHandle))
         {
             DeleteBinarySemaphore(BinarySemaphore.G431_Rx4GBinarySemHandle);
