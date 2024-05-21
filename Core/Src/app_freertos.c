@@ -310,7 +310,7 @@ void StartRTK_Task(void const * argument)
             sprintf(str,"%d-%lf-%lf\r\n",GPRMCH_Struct.Sec,GPRMCH_Struct.Longitude,GPRMCH_Struct.Latitude);
 //            HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str),1000);
             
-//            HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
+            HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
 
 //            BluetoothCopyRMCData();//А¶СА
 //            HAL_UART_Transmit_DMA(&huart1, OutGNRMCData, 27);
