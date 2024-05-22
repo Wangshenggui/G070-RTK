@@ -268,9 +268,9 @@ void StartModule4G_Task(void const * argument)
 			
             sprintf((char*)temp,"%s",USART2_RxStruct.Buff);
             HAL_UART_Transmit(&huart1, temp, strlen((char*)temp),1000);
-            USER_FLASH_Write((uint8_t*)temp);
+            //USER_FLASH_Write((uint8_t*)temp);
             
-            HAL_NVIC_SystemReset();
+            //HAL_NVIC_SystemReset();
             
             taskEXIT_CRITICAL();
         }

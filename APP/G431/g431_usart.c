@@ -78,7 +78,7 @@ void USART1_IDLE_Handler()
             //RTK¸´Î»
             //HAL_UART_Transmit(&huart3, (uint8_t*)"RESET\r\n", strlen((char*)"RESET\r\n"),1000);
             
-            HAL_NVIC_SystemReset();
+            //HAL_NVIC_SystemReset();
         }
         else if(
             USART1_RxStruct.Buff[0]=='$'

@@ -125,6 +125,9 @@ void USART2_IDLE_Handler(void)
                 && USART2_RxStruct.Buff[3]=='t' \
              && USART2_RxStruct.Buff[4]=='e')
             {
+				char temp[100];
+				sprintf((char*)temp,"%s",USART2_RxStruct.Buff);
+				HAL_UART_Transmit(&huart1, temp, strlen((char*)temp),1000);
                 modifyString((char*)USART2_RxStruct.Buff);
                 // Õ∑≈–≈∫≈¡ø
                 ReleaseBinarySemaphore(BinarySemaphore.Module4GAccPassConfBinarySemHandle);
