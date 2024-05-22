@@ -30,15 +30,11 @@ uint8_t ConfigurationFlag=0;
 
 void modifyString(char* str) 
 {
-    size_t len = strlen(str);
-    if (len < 11) // 如果字符串长度小于11，无法移除前8个字节和最后3个字节
-        return; // 可以添加错误处理或其他逻辑
-
-    // 移除前8个字节
-    memmove(str, str + 8, len - 8);
-    
-    // 移除最后3个字节
-    str[len - 3] = '\0';
+    // 移除第一个字节
+    memmove(str, str + 8, strlen(str));
+    // 把最后一个字节换成'\n'
+    str[strlen(str) - 2] = '\n';
+    str[strlen(str) - 1] = '\0';
 }
 
 void USART2_IDLE_Handler(void)
