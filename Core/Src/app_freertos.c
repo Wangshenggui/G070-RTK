@@ -252,7 +252,7 @@ void StartModule4G_Task(void const * argument)
             Modules4G_Struct.TxBuff[7] = 0x90;
             
             //向控制板（大板）发送控制指令
-            HAL_UART_Transmit(&huart1, Modules4G_Struct.TxBuff, 8,1000);
+            //HAL_UART_Transmit(&huart1, Modules4G_Struct.TxBuff, 8,1000);
             
             taskEXIT_CRITICAL();
         }
@@ -265,11 +265,12 @@ void StartModule4G_Task(void const * argument)
             
             HAL_GPIO_TogglePin(Module4G_LED_GPIO_Port,Module4G_LED_Pin);
             
+			
             sprintf((char*)temp,"%s",USART2_RxStruct.Buff);
-            HAL_UART_Transmit(&huart2, temp, strlen((char*)temp),1000);
+            HAL_UART_Transmit(&huart1, temp, strlen((char*)temp),1000);
 //            USER_FLASH_Write((uint8_t*)temp);
             
-            HAL_NVIC_SystemReset();
+            //HAL_NVIC_SystemReset();
             
             taskEXIT_CRITICAL();
         }
@@ -322,7 +323,7 @@ void StartRTK_Task(void const * argument)
             taskENTER_CRITICAL();
             
             copyRMCData();//大板
-            HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
+            //HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
 
             taskEXIT_CRITICAL();
         }
