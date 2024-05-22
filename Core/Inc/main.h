@@ -44,6 +44,7 @@ typedef struct
     bool Module4G_RxBinarySemHandle;
     bool RTK_RxRMCBinarySemHandle;
     bool Module4GControlBinarySemHandle;
+    bool Module4GAccPassConfBinarySemHandle;
 }BinarySemaphoreStructure;
 extern BinarySemaphoreStructure BinarySemaphore;
 

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [RTK\RTK.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image RTK\RTK.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed May 22 09:40:52 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed May 22 13:39:13 2024
 <BR><P>
 <H3>Maximum Stack Usage =        968 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -290,18 +290,18 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 
-<P><STRONG><a name="[102]"></a>ulSetInterruptMaskFromISR</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, port.o(.emb_text))
+<P><STRONG><a name="[104]"></a>ulSetInterruptMaskFromISR</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, port.o(.emb_text))
 <BR><BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IDLE_Handler
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IDLE_Handler
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
 <LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
-<P><STRONG><a name="[104]"></a>vClearInterruptMaskFromISR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, port.o(.emb_text))
+<P><STRONG><a name="[106]"></a>vClearInterruptMaskFromISR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, port.o(.emb_text))
 <BR><BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IDLE_Handler
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IDLE_Handler
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
 <LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
@@ -398,10 +398,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
-<BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPRMCH
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPRMC
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPGGA
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartModule4G_Task
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_FLASH_Read
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseCORS
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -480,7 +481,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__strtok_internal
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;separateString
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;separateString
 </UL>
 
 <P><STRONG><a name="[f0]"></a>strchr</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, strchr.o(.text))
@@ -495,13 +496,14 @@ Global Symbols
 <P><STRONG><a name="[f1]"></a>strlen</STRONG> (Thumb, 62 bytes, Stack size 12 bytes, strlen.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_FLASH_Write
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;separateString
+<BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;separateString
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_FLASH_Write
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseModules4G
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPRMCH
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPRMC
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPGGA
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartModule4G_Task
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;base64_encode
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseCORS
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -522,8 +524,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IDLE_Handler
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IDLE_Handler
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processInfo
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processInfo
 <LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 <LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
 </UL>
@@ -545,7 +547,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IDLE_Handler
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processInfo
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processInfo
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_FLASH_Read
 </UL>
 
@@ -554,10 +556,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[de]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<BR><BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartModule4G_Task
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[17f]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
@@ -571,7 +574,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;separateString
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;separateString
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseModules4G
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPRMCH
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPRMC
@@ -1084,8 +1087,9 @@ Global Symbols
 
 <P><STRONG><a name="[fe]"></a>HAL_GPIO_TogglePin</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32g0xx_hal_gpio.o(i.HAL_GPIO_TogglePin))
 <BR><BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IDLE_Handler
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartRTK_Task
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartModule4G_Task
 </UL>
 
 <P><STRONG><a name="[ea]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32g0xx_hal_gpio.o(i.HAL_GPIO_WritePin))
@@ -1172,8 +1176,9 @@ Global Symbols
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 </UL>
 
-<P><STRONG><a name="[10b]"></a>HAL_NVIC_SystemReset</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32g0xx_hal_cortex.o(i.HAL_NVIC_SystemReset))
-<BR><BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<P><STRONG><a name="[100]"></a>HAL_NVIC_SystemReset</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32g0xx_hal_cortex.o(i.HAL_NVIC_SystemReset))
+<BR><BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartModule4G_Task
 </UL>
 
 <P><STRONG><a name="[b8]"></a>HAL_PWREx_ControlVoltageScaling</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, stm32g0xx_hal_pwr_ex.o(i.HAL_PWREx_ControlVoltageScaling))
@@ -1181,7 +1186,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[b9]"></a>HAL_RCCEx_PeriphCLKConfig</STRONG> (Thumb, 338 bytes, Stack size 24 bytes, stm32g0xx_hal_rcc_ex.o(i.HAL_RCCEx_PeriphCLKConfig))
@@ -1199,7 +1204,7 @@ Global Symbols
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[b0]"></a>HAL_RCC_GetClockConfig</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, stm32g0xx_hal_rcc.o(i.HAL_RCC_GetClockConfig))
@@ -1229,7 +1234,7 @@ Global Symbols
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[b6]"></a>HAL_SYSCFG_StrobeDBattpinsConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32g0xx_hal.o(i.HAL_SYSCFG_StrobeDBattpinsConfig))
@@ -1357,7 +1362,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IDLE_Handler
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IDLE_Handler
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
 </UL>
 
 <P><STRONG><a name="[d3]"></a>HAL_UART_ErrorCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g0xx_hal_uart.o(i.HAL_UART_ErrorCallback))
@@ -1418,15 +1423,15 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IDLE_Handler
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IDLE_Handler
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[106]"></a>HAL_UART_RxCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, usart_it.o(i.HAL_UART_RxCpltCallback))
+<P><STRONG><a name="[108]"></a>HAL_UART_RxCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, usart_it.o(i.HAL_UART_RxCpltCallback))
 <BR><BR>[Called By]<UL><LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAReceiveCplt
 </UL>
 
-<P><STRONG><a name="[107]"></a>HAL_UART_RxHalfCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g0xx_hal_uart.o(i.HAL_UART_RxHalfCpltCallback))
+<P><STRONG><a name="[109]"></a>HAL_UART_RxHalfCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g0xx_hal_uart.o(i.HAL_UART_RxHalfCpltCallback))
 <BR><BR>[Called By]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMARxHalfCplt
 </UL>
 
@@ -1436,7 +1441,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartRTK_Task
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartModule4G_Task
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Callback01
@@ -1456,7 +1461,7 @@ Global Symbols
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMATransmitCplt
 </UL>
 
-<P><STRONG><a name="[108]"></a>HAL_UART_TxHalfCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g0xx_hal_uart.o(i.HAL_UART_TxHalfCpltCallback))
+<P><STRONG><a name="[10a]"></a>HAL_UART_TxHalfCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g0xx_hal_uart.o(i.HAL_UART_TxHalfCpltCallback))
 <BR><BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMATxHalfCplt
 </UL>
 
@@ -1632,15 +1637,22 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_freertos.o(.constdata)
 </UL>
-<P><STRONG><a name="[3d]"></a>StartModule4G_Task</STRONG> (Thumb, 212 bytes, Stack size 24 bytes, app_freertos.o(i.StartModule4G_Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 344<LI>Call Chain = StartModule4G_Task &rArr; ParseModules4G &rArr; extractNumber &rArr; atoi &rArr; strtol &rArr; _strtoul
+<P><STRONG><a name="[3d]"></a>StartModule4G_Task</STRONG> (Thumb, 288 bytes, Stack size 208 bytes, app_freertos.o(i.StartModule4G_Task))
+<BR><BR>[Stack]<UL><LI>Max Depth = 528 + Unknown Stack Size
+<LI>Call Chain = StartModule4G_Task &rArr; ParseModules4G &rArr; extractNumber &rArr; atoi &rArr; strtol &rArr; _strtoul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTimerStart
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_FLASH_Write
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseModules4G
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SystemReset
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_freertos.o(.constdata)
 </UL>
@@ -1650,10 +1662,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;separateString
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processInfo
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;separateString
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processInfo
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyRMCData
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyRMCData
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPRMCH
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPRMC
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPGGA
@@ -1665,13 +1677,13 @@ Global Symbols
 <P><STRONG><a name="[b]"></a>SysTick_Handler</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, port.o(i.SysTick_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SysTick_Handler &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vClearInterruptMaskFromISR
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulSetInterruptMaskFromISR
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vClearInterruptMaskFromISR
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulSetInterruptMaskFromISR
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g070xx.o(RESET)
 </UL>
-<P><STRONG><a name="[105]"></a>SystemClock_Config</STRONG> (Thumb, 110 bytes, Stack size 80 bytes, main.o(i.SystemClock_Config))
+<P><STRONG><a name="[107]"></a>SystemClock_Config</STRONG> (Thumb, 110 bytes, Stack size 80 bytes, main.o(i.SystemClock_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 180<LI>Call Chain = SystemClock_Config &rArr; HAL_RCC_OscConfig &rArr; HAL_InitTick &rArr; HAL_TIM_Base_Init &rArr; TIM_Base_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
@@ -1741,15 +1753,15 @@ Global Symbols
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_CheckIdleState
 </UL>
 
-<P><STRONG><a name="[109]"></a>USART1_IDLE_Handler</STRONG> (Thumb, 252 bytes, Stack size 224 bytes, g431_usart.o(i.USART1_IDLE_Handler))
+<P><STRONG><a name="[10b]"></a>USART1_IDLE_Handler</STRONG> (Thumb, 252 bytes, Stack size 224 bytes, g431_usart.o(i.USART1_IDLE_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 352 + Unknown Stack Size
 <LI>Call Chain = USART1_IDLE_Handler &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vClearInterruptMaskFromISR
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulSetInterruptMaskFromISR
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_FLASH_Write
+<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vClearInterruptMaskFromISR
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulSetInterruptMaskFromISR
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_DMAStop
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SystemReset
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_FLASH_Write
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SystemReset
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_DMA
@@ -1765,16 +1777,16 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 360 + Unknown Stack Size
 <LI>Call Chain = USART1_IRQHandler &rArr; USART1_IDLE_Handler &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<BR>[Calls]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g070xx.o(RESET)
 </UL>
-<P><STRONG><a name="[10c]"></a>USART2_IDLE_Handler</STRONG> (Thumb, 258 bytes, Stack size 24 bytes, 4gmodule.o(i.USART2_IDLE_Handler))
+<P><STRONG><a name="[10c]"></a>USART2_IDLE_Handler</STRONG> (Thumb, 294 bytes, Stack size 24 bytes, 4gmodule.o(i.USART2_IDLE_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = USART2_IDLE_Handler &rArr; HAL_UART_Receive_DMA &rArr; UART_Start_Receive_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vClearInterruptMaskFromISR
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulSetInterruptMaskFromISR
+<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vClearInterruptMaskFromISR
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulSetInterruptMaskFromISR
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_DMAStop
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_DMA
@@ -1803,8 +1815,8 @@ Global Symbols
 <P><STRONG><a name="[10d]"></a>USART3_IDLE_Handler</STRONG> (Thumb, 176 bytes, Stack size 24 bytes, rtk.o(i.USART3_IDLE_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = USART3_IDLE_Handler &rArr; HAL_UART_Receive_DMA &rArr; UART_Start_Receive_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vClearInterruptMaskFromISR
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulSetInterruptMaskFromISR
+<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vClearInterruptMaskFromISR
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulSetInterruptMaskFromISR
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_DMAStop
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_DMA
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
@@ -1822,14 +1834,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10a]"></a>USER_FLASH_Write</STRONG> (Thumb, 64 bytes, Stack size 32 bytes, flash.o(i.USER_FLASH_Write))
+<P><STRONG><a name="[ff]"></a>USER_FLASH_Write</STRONG> (Thumb, 64 bytes, Stack size 32 bytes, flash.o(i.USER_FLASH_Write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = USER_FLASH_Write &rArr; flash_write &rArr; HAL_FLASH_Program &rArr; FLASH_WaitForLastOperation
 </UL>
 <BR>[Calls]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_write
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_page_erase
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IDLE_Handler
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartModule4G_Task
 </UL>
 
 <P><STRONG><a name="[93]"></a>__ARM_common_ll_muluu</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, btod.o(i.__ARM_common_ll_muluu))
@@ -1918,7 +1931,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[101]"></a>copyRMCData</STRONG> (Thumb, 556 bytes, Stack size 16 bytes, nmea.o(i.copyRMCData))
+<P><STRONG><a name="[103]"></a>copyRMCData</STRONG> (Thumb, 556 bytes, Stack size 16 bytes, nmea.o(i.copyRMCData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = copyRMCData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartRTK_Task
@@ -1932,7 +1945,7 @@ Global Symbols
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_PageErase
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_FLASH_Write
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_FLASH_Write
 </UL>
 
 <P><STRONG><a name="[110]"></a>flash_write</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, flash.o(i.flash_write))
@@ -1942,7 +1955,7 @@ Global Symbols
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FLASH_Program
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FLASH_Lock
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_FLASH_Write
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_FLASH_Write
 </UL>
 
 <P><STRONG><a name="[115]"></a>frexp</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, frexp.o(i.frexp))
@@ -1985,7 +1998,7 @@ Global Symbols
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -2036,7 +2049,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartModule4G_Task
 </UL>
 
-<P><STRONG><a name="[100]"></a>processInfo</STRONG> (Thumb, 244 bytes, Stack size 40 bytes, rtk.o(i.processInfo))
+<P><STRONG><a name="[102]"></a>processInfo</STRONG> (Thumb, 244 bytes, Stack size 40 bytes, rtk.o(i.processInfo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = processInfo &rArr; __aeabi_memcpy
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
@@ -2064,7 +2077,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[ff]"></a>separateString</STRONG> (Thumb, 132 bytes, Stack size 40 bytes, rtk.o(i.separateString))
+<P><STRONG><a name="[101]"></a>separateString</STRONG> (Thumb, 132 bytes, Stack size 40 bytes, rtk.o(i.separateString))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = separateString &rArr; strtok &rArr; __strtok_internal &rArr; strspn
 </UL>
 <BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
@@ -2081,7 +2094,7 @@ Global Symbols
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSwitchTimerLists
 <LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
@@ -2111,7 +2124,7 @@ Global Symbols
 <LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
 <LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
@@ -2317,8 +2330,8 @@ Global Symbols
 <P><STRONG><a name="[154]"></a>xQueueGenericSendFromISR</STRONG> (Thumb, 142 bytes, Stack size 40 bytes, queue.o(i.xQueueGenericSendFromISR))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = xQueueGenericSendFromISR &rArr; prvCopyDataToQueue &rArr; __aeabi_memcpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vClearInterruptMaskFromISR
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulSetInterruptMaskFromISR
+<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vClearInterruptMaskFromISR
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulSetInterruptMaskFromISR
 <LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
 <LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 </UL>
@@ -2379,7 +2392,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
 </UL>
 
-<P><STRONG><a name="[103]"></a>xTaskIncrementTick</STRONG> (Thumb, 180 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
+<P><STRONG><a name="[105]"></a>xTaskIncrementTick</STRONG> (Thumb, 180 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
@@ -2420,7 +2433,7 @@ Global Symbols
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortYield
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
@@ -2593,7 +2606,7 @@ Local Symbols
 <P><STRONG><a name="[33]"></a>UART_DMAReceiveCplt</STRONG> (Thumb, 156 bytes, Stack size 16 bytes, stm32g0xx_hal_uart.o(i.UART_DMAReceiveCplt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART_DMAReceiveCplt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
+<BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32g0xx_hal_uart.o(i.UART_Start_Receive_DMA)
@@ -2601,7 +2614,7 @@ Local Symbols
 <P><STRONG><a name="[34]"></a>UART_DMARxHalfCplt</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, stm32g0xx_hal_uart.o(i.UART_DMARxHalfCplt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_DMARxHalfCplt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxHalfCpltCallback
+<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxHalfCpltCallback
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32g0xx_hal_uart.o(i.UART_Start_Receive_DMA)
@@ -2616,7 +2629,7 @@ Local Symbols
 <P><STRONG><a name="[31]"></a>UART_DMATxHalfCplt</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32g0xx_hal_uart.o(i.UART_DMATxHalfCplt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_DMATxHalfCplt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_TxHalfCpltCallback
+<BR>[Calls]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_TxHalfCpltCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32g0xx_hal_uart.o(i.HAL_UART_Transmit_DMA)
 </UL>
@@ -2739,7 +2752,7 @@ Local Symbols
 
 <P><STRONG><a name="[155]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
 <BR><BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 
 <P><STRONG><a name="[12d]"></a>prvCheckForValidListAndQueue</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, timers.o(i.prvCheckForValidListAndQueue))

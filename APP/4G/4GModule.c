@@ -102,8 +102,18 @@ void USART2_IDLE_Handler(void)
             && USART2_RxStruct.Buff[1]=='\"' \
         && USART2_RxStruct.Buff[USART2_RxStruct.Rx_len - 1]=='}')
         {
-            //释放信号量
-            ReleaseBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle);
+            if(USART2_RxStruct.Buff[2]=='n' && USART2_RxStruct.Buff[3]=='1')
+            {
+                //释放信号量
+                ReleaseBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle);
+            }
+            else if(USART2_RxStruct.Buff[2]=='l' \
+                && USART2_RxStruct.Buff[3]=='e' \
+             && USART2_RxStruct.Buff[4]=='t')
+            {
+                //释放信号量
+                ReleaseBinarySemaphore(BinarySemaphore.Module4GAccPassConfBinarySemHandle);
+            }
         }
         
         

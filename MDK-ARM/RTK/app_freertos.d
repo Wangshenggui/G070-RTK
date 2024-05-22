@@ -57,3 +57,6 @@ rtk\app_freertos.o: ../APP/RTK/rtk.h
 rtk\app_freertos.o: D:\Keil\ARM\ARMCC\Bin\..\include\string.h
 rtk\app_freertos.o: ../APP/NMEA/nmea.h
 rtk\app_freertos.o: ../Core/Inc/iwdg.h
+rtk\app_freertos.o: ../APP/FLASH/flash.h
+rtk\app_freertos.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+rtk\app_freertos.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdio.h
