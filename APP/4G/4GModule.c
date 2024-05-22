@@ -115,11 +115,11 @@ void USART2_IDLE_Handler(void)
             {
                 //释放信号量
                 ReleaseBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle);
-//            }
-//            else if(USART2_RxStruct.Buff[2]=='l' \
-//                && USART2_RxStruct.Buff[3]=='e' \
-//             && USART2_RxStruct.Buff[4]=='t')
-//            {
+            }
+            else if(USART2_RxStruct.Buff[2]=='l' \
+                && USART2_RxStruct.Buff[3]=='e' \
+             && USART2_RxStruct.Buff[4]=='t')
+            {
                 modifyString((char*)USART2_RxStruct.Buff);
                 //释放信号量
                 ReleaseBinarySemaphore(BinarySemaphore.Module4GAccPassConfBinarySemHandle);
