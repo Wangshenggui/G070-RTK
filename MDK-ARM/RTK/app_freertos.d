@@ -1,7 +1,7 @@
 rtk\app_freertos.o: ../Core/Src/app_freertos.c
 rtk\app_freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-rtk\app_freertos.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stddef.h
-rtk\app_freertos.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
+rtk\app_freertos.o: D:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
+rtk\app_freertos.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 rtk\app_freertos.o: ../Core/Inc/FreeRTOSConfig.h
 rtk\app_freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 rtk\app_freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -44,7 +44,7 @@ rtk\app_freertos.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h
 rtk\app_freertos.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h
 rtk\app_freertos.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h
 rtk\app_freertos.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
-rtk\app_freertos.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdbool.h
+rtk\app_freertos.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
 rtk\app_freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 rtk\app_freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 rtk\app_freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
@@ -54,7 +54,6 @@ rtk\app_freertos.o: ../Core/Inc/usart.h
 rtk\app_freertos.o: ../APP/G431/g431_usart.h
 rtk\app_freertos.o: ../APP/4G/4gmodule.h
 rtk\app_freertos.o: ../APP/RTK/rtk.h
-rtk\app_freertos.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\string.h
+rtk\app_freertos.o: D:\Keil\ARM\ARMCC\Bin\..\include\string.h
 rtk\app_freertos.o: ../APP/NMEA/nmea.h
 rtk\app_freertos.o: ../Core/Inc/iwdg.h
-rtk\app_freertos.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdio.h

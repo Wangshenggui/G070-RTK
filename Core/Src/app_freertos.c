@@ -298,22 +298,11 @@ void StartRTK_Task(void const * argument)
                 ParseGPGGA((char*)outinfo2, i);
                 ParseGPRMCH((char*)outinfo3, i);
             }
-                //ParseGPRMC((char*)"$GNRMC,023454.00,A,2623.01151432,N,10636.51528076,E,0.117,202.9,170124,2.0,W,A,C*53",i);
-            
             taskENTER_CRITICAL();
             
             copyRMCData();//´ó°å
-            
-            char str[100];
-            #include <string.h>
-            #include <stdio.h>
-            sprintf(str,"%d-%lf-%lf\r\n",GPRMCH_Struct.Sec,GPRMCH_Struct.Longitude,GPRMCH_Struct.Latitude);
-//            HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str),1000);
-            
             HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
 
-//            BluetoothCopyRMCData();//À¶ÑÀ
-//            HAL_UART_Transmit_DMA(&huart1, OutGNRMCData, 27);
             taskEXIT_CRITICAL();
         }
         osDelay(1);
