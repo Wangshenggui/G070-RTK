@@ -49,6 +49,7 @@ void USART2_IDLE_Handler(void)
         USART2_RxStruct.Rx_len = 200 - __HAL_DMA_GET_COUNTER(&hdma_usart2_rx);
 
         //复制到缓冲区
+		memset(USART2_RxStruct.Buff, 0, 200);
         memcpy(USART2_RxStruct.Buff, USART2_RxStruct.Rx_Buff, USART2_RxStruct.Rx_len);
         memset(USART2_RxStruct.Rx_Buff, 0, 200);
 
@@ -123,9 +124,7 @@ void USART2_IDLE_Handler(void)
             {
 				modifyString((char*)USART2_RxStruct.Buff);
 				
-				char temp[100];
-				sprintf((char*)temp,"%s",USART2_RxStruct.Buff);
-				HAL_UART_Transmit(&huart1, temp, strlen((char*)temp),1000);
+				
                 
                 //释放信号量
                 ReleaseBinarySemaphore(BinarySemaphore.Module4GAccPassConfBinarySemHandle);

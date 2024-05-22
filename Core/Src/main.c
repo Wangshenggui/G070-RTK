@@ -131,6 +131,8 @@ int main(void)
     
     sprintf((char*)str,"%s","Init\r\n");
     HAL_UART_Transmit(&huart1, str, strlen((char*)str),1000);
+	
+	HAL_UART_Transmit(&huart2, "$CORS,0,0,0,0", strlen((char*)"$CORS,0,0,0,0"),1000);
     
     
     //将数据写入
@@ -160,6 +162,7 @@ int main(void)
         CORS_Struct.DNS,CORS_Struct.Port,CORS_Struct.MountPoint,
     str);
     HAL_UART_Transmit(&huart1, UpperString, strlen((char*)UpperString),1000);
+	
     
     HAL_GPIO_WritePin(RTK_LED_GPIO_Port,RTK_LED_Pin,GPIO_PIN_SET);
     HAL_GPIO_WritePin(Module4G_LED_GPIO_Port,Module4G_LED_Pin,GPIO_PIN_SET);
