@@ -270,6 +270,7 @@ void StartModule4G_Task(void const * argument)
             HAL_UART_Transmit(&huart1, temp, strlen((char*)temp),1000);
 //            USER_FLASH_Write((uint8_t*)temp);
             
+			
             //HAL_NVIC_SystemReset();
             
             taskEXIT_CRITICAL();
