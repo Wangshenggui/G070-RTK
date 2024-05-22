@@ -122,9 +122,12 @@ void USART2_IDLE_Handler(void)
                 ReleaseBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle);
             }
             else if(USART2_RxStruct.Buff[2]=='l' \
-                && USART2_RxStruct.Buff[3]=='e' \
-             && USART2_RxStruct.Buff[4]=='t')
+                && USART2_RxStruct.Buff[3]=='t' \
+             && USART2_RxStruct.Buff[4]=='e')
             {
+				char temp[100];
+				sprintf((char*)temp,"%s",USART2_RxStruct.Buff);
+				HAL_UART_Transmit(&huart1, temp, strlen((char*)temp),1000);
                 modifyString((char*)USART2_RxStruct.Buff);
                 // Õ∑≈–≈∫≈¡ø
                 ReleaseBinarySemaphore(BinarySemaphore.Module4GAccPassConfBinarySemHandle);
