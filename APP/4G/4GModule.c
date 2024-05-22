@@ -37,6 +37,7 @@ void modifyString(char* str)
     // 移除前8个字节
     memmove(str, str + 8, len - 8);
     
+	len = strlen(str);
     // 移除最后3个字节
     str[len - 3] = '\0';
 }
@@ -125,10 +126,12 @@ void USART2_IDLE_Handler(void)
                 && USART2_RxStruct.Buff[3]=='t' \
              && USART2_RxStruct.Buff[4]=='e')
             {
+				modifyString((char*)USART2_RxStruct.Buff);
+				
 				char temp[100];
 				sprintf((char*)temp,"%s",USART2_RxStruct.Buff);
 				HAL_UART_Transmit(&huart1, temp, strlen((char*)temp),1000);
-                modifyString((char*)USART2_RxStruct.Buff);
+                
                 //释放信号量
                 ReleaseBinarySemaphore(BinarySemaphore.Module4GAccPassConfBinarySemHandle);
             }
