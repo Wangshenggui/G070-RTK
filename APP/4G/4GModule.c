@@ -27,6 +27,15 @@ uint8_t InsideOrOutside;
 3:信息错误
 uint8_t ConfigurationFlag=0;
 
+
+void modifyString(char* str) 
+{
+    // 移除第一个字节
+    memmove(str, str + 1, strlen(str));
+    // 把最后一个字节换成'\n'
+    str[strlen(str) - 1] = '\n';
+}
+
 void USART2_IDLE_Handler(void)
 {
     if (RESET != __HAL_UART_GET_FLAG(&huart2, UART_FLAG_IDLE))   //判断是否是空闲中断
@@ -111,6 +120,7 @@ void USART2_IDLE_Handler(void)
 //                && USART2_RxStruct.Buff[3]=='e' \
 //             && USART2_RxStruct.Buff[4]=='t')
 //            {
+                modifyString((char*)USART2_RxStruct.Buff);
                 //释放信号量
                 ReleaseBinarySemaphore(BinarySemaphore.Module4GAccPassConfBinarySemHandle);
             }

@@ -27,7 +27,7 @@ typedef struct
 }Modules4G_Structure;
 extern Modules4G_Structure Modules4G_Struct;
 
-
+void modifyString(char* str);
 void USART2_IDLE_Handler(void);
 void ParseModules4G(const char* string, int n);
 
