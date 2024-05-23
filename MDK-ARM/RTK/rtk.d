@@ -38,6 +38,7 @@ rtk\rtk.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h
 rtk\rtk.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
 rtk\rtk.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
 rtk\rtk.o: ../Core/Inc/usart.h
+rtk\rtk.o: ../APP/4G/4gmodule.h
 rtk\rtk.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 rtk\rtk.o: ../Core/Inc/FreeRTOSConfig.h
 rtk\rtk.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
@@ -53,3 +54,4 @@ rtk\rtk.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 rtk\rtk.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 rtk\rtk.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 rtk\rtk.o: D:\Keil\ARM\ARMCC\Bin\..\include\string.h
+rtk\rtk.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdio.h
