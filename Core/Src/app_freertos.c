@@ -299,6 +299,8 @@ void StartModule4G_Task(void const* argument)
                 Mod4G_Struct.Antenna
             );
             HAL_UART_Transmit(&huart1, temp, strlen((char*)temp), 1000);
+            //…Ë÷√RTK
+            ConfigRTK(Mod4G_Struct);
 
             taskEXIT_CRITICAL();
         }

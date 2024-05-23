@@ -39,3 +39,4 @@ rtk\usart_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
 rtk\usart_it.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdbool.h
 rtk\usart_it.o: ../Core/Inc/usart.h
 rtk\usart_it.o: ../APP/RTK/rtk.h
+rtk\usart_it.o: ../APP/4G/4gmodule.h

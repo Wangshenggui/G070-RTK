@@ -7,6 +7,7 @@
 
 #include <string.h>
 #include "main.h"
+#include "4gmodule.h"
 
 
 USART3_RxStructure USART3_RxStruct;
@@ -113,35 +114,35 @@ void USART3_IDLE_Handler()
 
         //复制到缓冲区
         memcpy(USART3_RxStruct.Buff, USART3_RxStruct.Rx_Buff, USART3_RxStruct.Rx_len);
-        
-        for(uint8_t i=0;i<USART3_RxStruct.Rx_len-10;i++)
+
+        for (uint8_t i = 0; i < USART3_RxStruct.Rx_len - 10; i++)
         {
-            if(USART3_RxStruct.Buff[i] == 'R')
+            if (USART3_RxStruct.Buff[i] == 'R')
             {
-                if(USART3_RxStruct.Buff[i+1] == 'M' 
-                    && USART3_RxStruct.Buff[i+2] == 'C' 
-                 && USART3_RxStruct.Buff[i+3] == ',')
+                if (USART3_RxStruct.Buff[i + 1] == 'M'
+                    && USART3_RxStruct.Buff[i + 2] == 'C'
+                    && USART3_RxStruct.Buff[i + 3] == ',')
                 {
                     //释放信号量
                     ReleaseBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
                     break;
                 }
             }
-            if(USART3_RxStruct.Buff[i] == 'G')
+            if (USART3_RxStruct.Buff[i] == 'G')
             {
-                if(USART3_RxStruct.Buff[i+1] == 'G' 
-                    && USART3_RxStruct.Buff[i+2] == 'A')
+                if (USART3_RxStruct.Buff[i + 1] == 'G'
+                    && USART3_RxStruct.Buff[i + 2] == 'A')
                 {
                     //释放信号量
                     ReleaseBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
                     break;
                 }
             }
-            if(USART3_RxStruct.Buff[i] == 'R')
+            if (USART3_RxStruct.Buff[i] == 'R')
             {
-                if(USART3_RxStruct.Buff[i+1] == 'M' 
-                    && USART3_RxStruct.Buff[i+2] == 'C' 
-                && USART3_RxStruct.Buff[i+3] == 'H')
+                if (USART3_RxStruct.Buff[i + 1] == 'M'
+                    && USART3_RxStruct.Buff[i + 2] == 'C'
+                    && USART3_RxStruct.Buff[i + 3] == 'H')
                 {
                     //释放信号量
                     ReleaseBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
@@ -157,6 +158,181 @@ void USART3_IDLE_Handler()
     }
 }
 
+#include <string.h>
+#include <stdio.h>
+//得到4G模块指令，设置RTK
+void ConfigRTK(Mod4G_Structure M4G)
+{
+#define TEST 1   //stm32
+
+    char Freq_Str[10] = { 0 };
+
+    char SetStr[100] = { 0 };
+
+    if (M4G.COM == 0)
+    {
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"freset\r\n", strlen("freset\r\n"), 1000);
+#else
+        printf("freset\r\n");
+#endif
+        return;
+    }
+    /// <summary>
+    /// ///////////////////////////////////////////////
+    /// </summary>
+    if (M4G.Freq == 1)
+    {
+        sprintf(Freq_Str, "1");
+    }
+    else if (M4G.Freq > 1)
+    {
+        sprintf(Freq_Str, "%0.1f", 1.0 / M4G.Freq);
+    }
+
+    const char temp[2][10] = { "COM1", "COM2" };
+    if (M4G.COM == 1 || M4G.COM == 2)
+    {
+        if (M4G.GGA == 1)
+        {
+            sprintf(SetStr, "GPGGA %s %s", temp[M4G.COM - 1], Freq_Str);
+#if TEST
+            HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
+#else
+            printf("%s\r\n", SetStr);
+#endif
+            
+        }
+        if (M4G.RMC == 1)
+        {
+            sprintf(SetStr, "GPRMC %s %s", temp[M4G.COM - 1], Freq_Str);
+#if TEST
+            HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
+#else
+            printf("%s\r\n", SetStr);
+#endif
+        }
+        if (M4G.GSV == 1)
+        {
+            sprintf(SetStr, "GPGSV %s %s", temp[M4G.COM - 1], Freq_Str);
+#if TEST
+            HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
+#else
+            printf("%s\r\n", SetStr);
+#endif
+        }
+    }
+    else if (M4G.COM == 3)
+    {
+        if (M4G.GGA == 1)
+        {
+            sprintf(SetStr, "GPGGA COM1 %s\r\nGPGGA COM2 %s", Freq_Str, Freq_Str);
+#if TEST
+            HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
+#else
+            printf("%s\r\n", SetStr);
+#endif
+        }
+        if (M4G.RMC == 1)
+        {
+            sprintf(SetStr, "GPRMC COM1 %s\r\nGPRMC COM2 %s", Freq_Str, Freq_Str);
+#if TEST
+            HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
+#else
+            printf("%s\r\n", SetStr);
+#endif
+        }
+        if (M4G.GSV == 1)
+        {
+            sprintf(SetStr, "GPGSV COM2 %s", Freq_Str);
+#if TEST
+            HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
+#else
+            printf("%s\r\n", SetStr);
+#endif
+        }
+    }
+    else if (M4G.COM == 4)
+    {
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"unlog com1\r\n", strlen("unlog com1\r\n"), 1000);
+#else
+        printf("unlog com1\r\n");
+#endif
+    }
+    else if (M4G.COM == 5)
+    {
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"unlog com2", strlen("unlog com2"), 1000);
+#else
+        printf("unlog com2\r\n");
+#endif
+    }
+
+    if (M4G.Satellite == 1)
+    {
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"unmask BDS\r\n", strlen("unmask BDS\r\n"), 1000);
+#else
+        printf("unmask BDS\r\n");
+#endif
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"unmask GLO\r\n", strlen("unmask GLO\r\n"), 1000);
+#else
+        printf("unmask GLO\r\n");
+#endif
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"unmask GPS\r\n", strlen("unmask GPS\r\n"), 1000);
+#else
+        printf("unmask GPS\r\n");
+#endif
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"unmask GAL\r\n", strlen("unmask GAL\r\n"), 1000);
+#else
+        printf("unmask GAL\r\n");
+#endif
+    }
+    else
+    {
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"fmask BDS\r\n", strlen("mask BDS\r\n"), 1000);
+#else
+        printf("mask BDS\r\n");
+#endif
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"mask GLO\r\n", strlen("mask GLO\r\n"), 1000);
+#else
+        printf("mask GLO\r\n");
+#endif
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"mask GPS\r\n", strlen("mask GPS\r\n"), 1000);
+#else
+        printf("mask GPS\r\n");
+#endif
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"mask GAL\r\n", strlen("mask GAL\r\n"), 1000);
+#else
+        printf("mask GAL\r\n");
+#endif
+    }
+
+    if (M4G.Antenna == 1)
+    {
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"CONFIG ANTENNA2 ENABLE\r\n", strlen("CONFIG ANTENNA2 ENABLE\r\n"), 1000);
+#else
+        printf("CONFIG ANTENNA2 ENABLE\r\n");
+#endif
+    }
+    else
+    {
+#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"CONFIG ANTENNA2 DISABLE\r\n", strlen("CONFIG ANTENNA2 DISABLE\r\n"), 1000);
+#else
+        printf("CONFIG ANTENNA2 DISABLE\r\n");
+#endif
+    }
+}
 
 
 

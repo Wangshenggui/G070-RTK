@@ -39,6 +39,7 @@ rtk\nmea.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h
 rtk\nmea.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
 rtk\nmea.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdbool.h
 rtk\nmea.o: ../Core/Inc/usart.h
+rtk\nmea.o: ../APP/4G/4gmodule.h
 rtk\nmea.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\string.h
 rtk\nmea.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdlib.h
 rtk\nmea.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdio.h
