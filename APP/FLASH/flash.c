@@ -79,6 +79,16 @@ uint8_t *USER_FLASH_Read()
                 sprintf((char*)OutStr,"%s%s",(char*)OutStr,(char*)temp);
                 return OutStr;
             }
+			else
+			{
+				static uint8_t a = 0;
+				a++;
+				if(a>100)
+				{
+					a = 0;
+					return (uint8_t*)"$CORS,1,4,9,cedr17622,hm0dcvnt\n";
+				}
+			}
             sprintf((char*)temp,"%s%c",(char*)temp,u_data1);
         }
         sprintf((char*)OutStr,"%s%s",(char*)OutStr,(char*)temp);
