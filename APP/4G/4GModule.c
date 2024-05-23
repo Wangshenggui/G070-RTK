@@ -132,8 +132,6 @@ void USART2_IDLE_Handler(void)
                 && USART2_RxStruct.Buff[3]=='t' \
              && USART2_RxStruct.Buff[4]=='k')
             {
-				modifyString((char*)USART2_RxStruct.Buff);
-				
                 // Õ∑≈–≈∫≈¡ø
                 ReleaseBinarySemaphore(BinarySemaphore.RTKConfigBinarySemHandle);
             }
