@@ -10,6 +10,7 @@
 
 USART2_RxStructure USART2_RxStruct;
 Modules4G_Structure Modules4G_Struct;
+Mod4G_Structure Mod4G_Struct;
 
 //判断返回信息标志\
 1：OK\
@@ -124,10 +125,17 @@ void USART2_IDLE_Handler(void)
             {
 				modifyString((char*)USART2_RxStruct.Buff);
 				
-				
-                
                 //释放信号量
                 ReleaseBinarySemaphore(BinarySemaphore.Module4GAccPassConfBinarySemHandle);
+            }
+            else if(USART2_RxStruct.Buff[2]=='r' \
+                && USART2_RxStruct.Buff[3]=='t' \
+             && USART2_RxStruct.Buff[4]=='k')
+            {
+				modifyString((char*)USART2_RxStruct.Buff);
+				
+                //释放信号量
+                ReleaseBinarySemaphore(BinarySemaphore.RTKConfigBinarySemHandle);
             }
         }
         
@@ -214,6 +222,82 @@ void ParseModules4G(const char* string, int n)
     }
 }
 
+
+
+// 定义回调函数
+void COM_Callback(const char* result) 
+{
+    Mod4G_Struct.COM = result[8] - 0x30;
+}
+
+void GGA_Callback(const char* result) 
+{
+    Mod4G_Struct.GGA = result[0] - 0x30;
+}
+
+void GSV_Callback(const char* result) 
+{
+    Mod4G_Struct.GSV = result[0] - 0x30;
+}
+
+void RMC_Callback(const char* result) 
+{
+    Mod4G_Struct.RMC = result[0] - 0x30;
+}
+
+void Freq_Callback(const char* result) 
+{
+    Mod4G_Struct.Freq = atoi(result);
+}
+
+void Satellite_Callback(const char* result) 
+{
+    Mod4G_Struct.Satellite = result[0] - 0x30;
+}
+
+void Antenna_Callback(const char* result) 
+{
+    Mod4G_Struct.Antenna = result[0] - 0x30;
+}
+
+void Parse4G_RTKConfig(const char* string, int n, ParseCallback callback)
+{
+    char result[200] = { 0 };
+    unsigned char max_length = 200;
+    const char* start = string;
+
+    // 定位到第n个逗号
+    for (int i = 0; i < n; i++) {
+        start = strchr(start, ',');
+        if (!start) {
+            // 如果逗号不够n个，将结果设为空字符串
+            result[0] = '\0';
+            return;
+        }
+
+        // 移动到下一个字符
+        start++;
+    }
+
+    // 计算逗号后字符串的长度
+    const char* end = strchr(start, ',');
+    size_t length = end ? (size_t)(end - start) : strlen(start);
+
+    // 截取字符串并复制到结果
+    if (length < max_length - 1) {
+        strncpy(result, start, length);
+        // 手动添加 null 结尾
+        result[length] = '\0';
+    }
+    else {
+        // 目标长度不足，截断字符串
+        strncpy(result, start, max_length - 1);
+        result[max_length - 1] = '\0';
+    }
+
+    // 调用回调函数
+    callback(result);
+}
 
 
 

@@ -15,9 +15,9 @@
   *
   ******************************************************************************
   */
-/* USER CODE END Header */
+  /* USER CODE END Header */
 
-/* Includes ------------------------------------------------------------------*/
+  /* Includes ------------------------------------------------------------------*/
 #include "FreeRTOS.h"
 #include "task.h"
 #include "main.h"
@@ -76,10 +76,10 @@ osTimerId Timer01Handle;
 
 /* USER CODE END FunctionPrototypes */
 
-void StartG431_Task(void const * argument);
-void StartModule4G_Task(void const * argument);
-void StartRTK_Task(void const * argument);
-void Callback01(void const * argument);
+void StartG431_Task(void const* argument);
+void StartModule4G_Task(void const* argument);
+void StartRTK_Task(void const* argument);
+void Callback01(void const* argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -89,49 +89,49 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
   * @retval None
   */
 void MX_FREERTOS_Init(void) {
-  /* USER CODE BEGIN Init */
+    /* USER CODE BEGIN Init */
 
-  /* USER CODE END Init */
+    /* USER CODE END Init */
 
-  /* USER CODE BEGIN RTOS_MUTEX */
-    /* add mutexes, ... */
-  /* USER CODE END RTOS_MUTEX */
+    /* USER CODE BEGIN RTOS_MUTEX */
+      /* add mutexes, ... */
+    /* USER CODE END RTOS_MUTEX */
 
-  /* USER CODE BEGIN RTOS_SEMAPHORES */
-    /* add semaphores, ... */
-  /* USER CODE END RTOS_SEMAPHORES */
+    /* USER CODE BEGIN RTOS_SEMAPHORES */
+      /* add semaphores, ... */
+    /* USER CODE END RTOS_SEMAPHORES */
 
-  /* Create the timer(s) */
-  /* definition and creation of Timer01 */
-  osTimerDef(Timer01, Callback01);
-  Timer01Handle = osTimerCreate(osTimer(Timer01), osTimerOnce, NULL);
+    /* Create the timer(s) */
+    /* definition and creation of Timer01 */
+    osTimerDef(Timer01, Callback01);
+    Timer01Handle = osTimerCreate(osTimer(Timer01), osTimerOnce, NULL);
 
-  /* USER CODE BEGIN RTOS_TIMERS */
-    /* start timers, add new ones, ... */
-  /* USER CODE END RTOS_TIMERS */
+    /* USER CODE BEGIN RTOS_TIMERS */
+      /* start timers, add new ones, ... */
+    /* USER CODE END RTOS_TIMERS */
 
-  /* USER CODE BEGIN RTOS_QUEUES */
-    /* add queues, ... */
-  /* USER CODE END RTOS_QUEUES */
+    /* USER CODE BEGIN RTOS_QUEUES */
+      /* add queues, ... */
+    /* USER CODE END RTOS_QUEUES */
 
-  /* Create the thread(s) */
-  /* definition and creation of G431_Task */
-  osThreadDef(G431_Task, StartG431_Task, osPriorityRealtime, 0, 512);
-  G431_TaskHandle = osThreadCreate(osThread(G431_Task), NULL);
+    /* Create the thread(s) */
+    /* definition and creation of G431_Task */
+    osThreadDef(G431_Task, StartG431_Task, osPriorityRealtime, 0, 512);
+    G431_TaskHandle = osThreadCreate(osThread(G431_Task), NULL);
 
-  /* definition and creation of Module4G_Task */
-  osThreadDef(Module4G_Task, StartModule4G_Task, osPriorityBelowNormal, 0, 256);
-  Module4G_TaskHandle = osThreadCreate(osThread(Module4G_Task), NULL);
+    /* definition and creation of Module4G_Task */
+    osThreadDef(Module4G_Task, StartModule4G_Task, osPriorityBelowNormal, 0, 256);
+    Module4G_TaskHandle = osThreadCreate(osThread(Module4G_Task), NULL);
 
-  /* definition and creation of RTK_Task */
-  osThreadDef(RTK_Task, StartRTK_Task, osPriorityIdle, 0, 512);
-  RTK_TaskHandle = osThreadCreate(osThread(RTK_Task), NULL);
+    /* definition and creation of RTK_Task */
+    osThreadDef(RTK_Task, StartRTK_Task, osPriorityIdle, 0, 512);
+    RTK_TaskHandle = osThreadCreate(osThread(RTK_Task), NULL);
 
-  /* USER CODE BEGIN RTOS_THREADS */
-    /* add threads, ... */
-//    //挂起自动上报任务
-//    osThreadSuspend(RTK_TaskHandle);
-  /* USER CODE END RTOS_THREADS */
+    /* USER CODE BEGIN RTOS_THREADS */
+      /* add threads, ... */
+  //    //挂起自动上报任务
+  //    osThreadSuspend(RTK_TaskHandle);
+    /* USER CODE END RTOS_THREADS */
 
 }
 
@@ -141,18 +141,18 @@ void MX_FREERTOS_Init(void) {
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_StartG431_Task */
-void StartG431_Task(void const * argument)
+  /* USER CODE END Header_StartG431_Task */
+void StartG431_Task(void const* argument)
 {
-  /* USER CODE BEGIN StartG431_Task */
+    /* USER CODE BEGIN StartG431_Task */
     hiwdg.Instance = IWDG;
-  hiwdg.Init.Prescaler = IWDG_PRESCALER_32;
-  hiwdg.Init.Window = 1000;
-  hiwdg.Init.Reload = 1000;
-  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
-  {
-    Error_Handler();
-  }
+    hiwdg.Init.Prescaler = IWDG_PRESCALER_32;
+    hiwdg.Init.Window = 1000;
+    hiwdg.Init.Reload = 1000;
+    if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+    {
+        Error_Handler();
+    }
     /* Infinite loop */
     for (;;)
     {
@@ -162,8 +162,8 @@ void StartG431_Task(void const * argument)
             DeleteBinarySemaphore(BinarySemaphore.G431_Rx4GBinarySemHandle);
             taskENTER_CRITICAL();
             //向4G模块发送指令
-            HAL_UART_Transmit_DMA(&huart2, USART1_RxStruct.Buff, USART1_RxStruct.Rx_len-2);
-            
+            HAL_UART_Transmit_DMA(&huart2, USART1_RxStruct.Buff, USART1_RxStruct.Rx_len - 2);
+
             taskEXIT_CRITICAL();
         }
         if (myOSOK == AcquireBinarySemaphore(BinarySemaphore.G431_RxRTKBinarySemHandle))
@@ -172,14 +172,14 @@ void StartG431_Task(void const * argument)
             taskENTER_CRITICAL();
             //向RTK模块发送指令
             HAL_UART_Transmit_DMA(&huart3, USART1_RxStruct.Buff, USART1_RxStruct.Rx_len);
-            
+
             taskEXIT_CRITICAL();
         }
-        
+
 
         osDelay(1);
     }
-  /* USER CODE END StartG431_Task */
+    /* USER CODE END StartG431_Task */
 }
 
 /* USER CODE BEGIN Header_StartModule4G_Task */
@@ -189,10 +189,10 @@ void StartG431_Task(void const * argument)
 * @retval None
 */
 /* USER CODE END Header_StartModule4G_Task */
-void StartModule4G_Task(void const * argument)
+void StartModule4G_Task(void const* argument)
 {
-  /* USER CODE BEGIN StartModule4G_Task */
-    /* Infinite loop */
+    /* USER CODE BEGIN StartModule4G_Task */
+      /* Infinite loop */
     for (;;)
     {
         if (myOSOK == AcquireBinarySemaphore(BinarySemaphore.Module4G_RxBinarySemHandle))
@@ -225,7 +225,7 @@ void StartModule4G_Task(void const * argument)
                 HAL_UART_Transmit(&huart1, USART2_RxStruct.Buff, USART2_RxStruct.Rx_len, 1000);
             }
 
-            
+
             taskEXIT_CRITICAL();
         }
         if (myOSOK == AcquireBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle))
@@ -233,15 +233,15 @@ void StartModule4G_Task(void const * argument)
             DeleteBinarySemaphore(BinarySemaphore.Module4GControlBinarySemHandle);
             DeleteBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
             taskENTER_CRITICAL();
-            
+
             Modules4G_Struct.ControlByte = 0;
             Modules4G_Struct.DirByte = 0;
             for (int i = 0; i < 12; i++)
             {
                 ParseModules4G((char*)USART2_RxStruct.Buff, i);
             }
-            
-            
+
+
             Modules4G_Struct.TxBuff[0] = 0xeb;
             Modules4G_Struct.TxBuff[1] = Modules4G_Struct.ControlByte;
             Modules4G_Struct.TxBuff[2] = Modules4G_Struct.DirByte;
@@ -250,10 +250,10 @@ void StartModule4G_Task(void const * argument)
             Modules4G_Struct.TxBuff[5] = Modules4G_Struct.Speed[2];
             Modules4G_Struct.TxBuff[6] = Modules4G_Struct.Speed[3];
             Modules4G_Struct.TxBuff[7] = 0x90;
-            
+
             //向控制板（大板）发送控制指令
-            HAL_UART_Transmit(&huart1, Modules4G_Struct.TxBuff, 8,1000);
-            
+            HAL_UART_Transmit(&huart1, Modules4G_Struct.TxBuff, 8, 1000);
+
             taskEXIT_CRITICAL();
         }
         if (myOSOK == AcquireBinarySemaphore(BinarySemaphore.Module4GAccPassConfBinarySemHandle))
@@ -261,24 +261,52 @@ void StartModule4G_Task(void const * argument)
             DeleteBinarySemaphore(BinarySemaphore.Module4GAccPassConfBinarySemHandle);
             taskENTER_CRITICAL();
 
-            uint8_t temp[200] = {0};
-            
-            HAL_GPIO_TogglePin(Module4G_LED_GPIO_Port,Module4G_LED_Pin);
-            
-			
-            sprintf((char*)temp,"%s",USART2_RxStruct.Buff);
-            HAL_UART_Transmit(&huart1, temp, strlen((char*)temp),1000);
+            uint8_t temp[200] = { 0 };
+
+            HAL_GPIO_TogglePin(Module4G_LED_GPIO_Port, Module4G_LED_Pin);
+
+
+            sprintf((char*)temp, "%s", USART2_RxStruct.Buff);
+            HAL_UART_Transmit(&huart1, temp, strlen((char*)temp), 1000);
             USER_FLASH_Write((uint8_t*)temp);
-            
+
             HAL_NVIC_SystemReset();
-            
+
             taskEXIT_CRITICAL();
         }
-        
+        if (myOSOK == AcquireBinarySemaphore(BinarySemaphore.RTKConfigBinarySemHandle))
+        {
+            DeleteBinarySemaphore(BinarySemaphore.RTKConfigBinarySemHandle);
+            taskENTER_CRITICAL();
+
+            Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 0, COM_Callback);
+            Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 1, GGA_Callback);
+            Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 2, GSV_Callback);
+            Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 3, RMC_Callback);
+            Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 4, Freq_Callback);
+            Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 5, Satellite_Callback);
+            Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 6, Antenna_Callback);
+
+            uint8_t temp[200] = { 0 };
+
+            sprintf((char*)temp, "%d--%d--%d--%d--%d--%d--%d",
+                Mod4G_Struct.COM,
+                Mod4G_Struct.GGA,
+                Mod4G_Struct.GSV,
+                Mod4G_Struct.RMC,
+                Mod4G_Struct.Freq,
+                Mod4G_Struct.Satellite,
+                Mod4G_Struct.Antenna
+            );
+            HAL_UART_Transmit(&huart1, temp, strlen((char*)temp), 1000);
+
+            taskEXIT_CRITICAL();
+        }
+
 
         osDelay(1);
     }
-  /* USER CODE END StartModule4G_Task */
+    /* USER CODE END StartModule4G_Task */
 }
 
 /* USER CODE BEGIN Header_StartRTK_Task */
@@ -288,18 +316,18 @@ void StartModule4G_Task(void const * argument)
 * @retval None
 */
 /* USER CODE END Header_StartRTK_Task */
-void StartRTK_Task(void const * argument)
+void StartRTK_Task(void const* argument)
 {
-  /* USER CODE BEGIN StartRTK_Task */
-    /* Infinite loop */
+    /* USER CODE BEGIN StartRTK_Task */
+      /* Infinite loop */
     for (;;)
     {
         if (myOSOK == AcquireBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle))
         {
             DeleteBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
-            
-            HAL_GPIO_TogglePin(RTK_LED_GPIO_Port,RTK_LED_Pin);
-            
+
+            HAL_GPIO_TogglePin(RTK_LED_GPIO_Port, RTK_LED_Pin);
+
             char info1[100];
             char info2[100];
             char info3[100];
@@ -307,21 +335,21 @@ void StartRTK_Task(void const * argument)
             char outinfo1[100];
             char outinfo2[100];
             char outinfo3[100];
-            
+
             const char* delimiter = "\r\n";
-            
-//            HAL_UART_Transmit(&huart1, USART3_RxStruct.Buff, strlen(USART3_RxStruct.Buff),1000);
+
+            //            HAL_UART_Transmit(&huart1, USART3_RxStruct.Buff, strlen(USART3_RxStruct.Buff),1000);
             separateString((char*)USART3_RxStruct.Buff, delimiter, info1, info2, info3);
             processInfo((uint8_t*)info1, (uint8_t*)info2, (uint8_t*)info3, (uint8_t*)outinfo1, (uint8_t*)outinfo2, (uint8_t*)outinfo3, 100);
-            
-            for(uint8_t i=0;i<=14;i++)
+
+            for (uint8_t i = 0; i <= 14; i++)
             {
                 ParseGPRMC((char*)outinfo1, i);
                 ParseGPGGA((char*)outinfo2, i);
                 ParseGPRMCH((char*)outinfo3, i);
             }
             taskENTER_CRITICAL();
-            
+
             copyRMCData();//大板
             //HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
 
@@ -329,13 +357,13 @@ void StartRTK_Task(void const * argument)
         }
         osDelay(1);
     }
-  /* USER CODE END StartRTK_Task */
+    /* USER CODE END StartRTK_Task */
 }
 
 /* Callback01 function */
-void Callback01(void const * argument)
+void Callback01(void const* argument)
 {
-  /* USER CODE BEGIN Callback01 */
+    /* USER CODE BEGIN Callback01 */
     taskENTER_CRITICAL();
     InsideOrOutside = 0;
     //发送查询命令
@@ -345,7 +373,7 @@ void Callback01(void const * argument)
     HAL_UART_Transmit(&huart2, (uint8_t*)"AT*GSTATE?\r\n", strlen("AT*GSTATE?\r\n"), 1000);
     HAL_UART_Transmit(&huart2, (uint8_t*)"AT*GSTATE?\r\n", strlen("AT*GSTATE?\r\n"), 1000);
     taskEXIT_CRITICAL();
-  /* USER CODE END Callback01 */
+    /* USER CODE END Callback01 */
 }
 
 /* Private application code --------------------------------------------------*/
