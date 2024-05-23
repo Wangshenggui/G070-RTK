@@ -8,7 +8,7 @@ rtk\rtk.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h
 rtk\rtk.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g0xx.h
 rtk\rtk.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g070xx.h
 rtk\rtk.o: ../Drivers/CMSIS/Include/core_cm0plus.h
-rtk\rtk.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
+rtk\rtk.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 rtk\rtk.o: ../Drivers/CMSIS/Include/cmsis_version.h
 rtk\rtk.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 rtk\rtk.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -16,7 +16,7 @@ rtk\rtk.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 rtk\rtk.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/system_stm32g0xx.h
 rtk\rtk.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h
 rtk\rtk.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-rtk\rtk.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stddef.h
+rtk\rtk.o: D:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
 rtk\rtk.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h
 rtk\rtk.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc_ex.h
 rtk\rtk.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_gpio.h
@@ -36,7 +36,7 @@ rtk\rtk.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h
 rtk\rtk.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h
 rtk\rtk.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h
 rtk\rtk.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
-rtk\rtk.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdbool.h
+rtk\rtk.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
 rtk\rtk.o: ../Core/Inc/usart.h
 rtk\rtk.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 rtk\rtk.o: ../Core/Inc/FreeRTOSConfig.h
@@ -52,4 +52,4 @@ rtk\rtk.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 rtk\rtk.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 rtk\rtk.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 rtk\rtk.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
-rtk\rtk.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\string.h
+rtk\rtk.o: D:\Keil\ARM\ARMCC\Bin\..\include\string.h

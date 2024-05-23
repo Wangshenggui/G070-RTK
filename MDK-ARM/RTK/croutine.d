@@ -1,7 +1,7 @@
 rtk\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/croutine.c
 rtk\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-rtk\croutine.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stddef.h
-rtk\croutine.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
+rtk\croutine.o: D:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
+rtk\croutine.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 rtk\croutine.o: ../Core/Inc/FreeRTOSConfig.h
 rtk\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 rtk\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

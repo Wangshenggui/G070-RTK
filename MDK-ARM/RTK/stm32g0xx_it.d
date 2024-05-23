@@ -7,7 +7,7 @@ rtk\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h
 rtk\stm32g0xx_it.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g0xx.h
 rtk\stm32g0xx_it.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g070xx.h
 rtk\stm32g0xx_it.o: ../Drivers/CMSIS/Include/core_cm0plus.h
-rtk\stm32g0xx_it.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
+rtk\stm32g0xx_it.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 rtk\stm32g0xx_it.o: ../Drivers/CMSIS/Include/cmsis_version.h
 rtk\stm32g0xx_it.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 rtk\stm32g0xx_it.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -15,7 +15,7 @@ rtk\stm32g0xx_it.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 rtk\stm32g0xx_it.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/system_stm32g0xx.h
 rtk\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h
 rtk\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-rtk\stm32g0xx_it.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stddef.h
+rtk\stm32g0xx_it.o: D:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
 rtk\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h
 rtk\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc_ex.h
 rtk\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_gpio.h
@@ -35,7 +35,7 @@ rtk\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h
 rtk\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h
 rtk\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h
 rtk\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h
-rtk\stm32g0xx_it.o: D:\MDK5\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdbool.h
+rtk\stm32g0xx_it.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
 rtk\stm32g0xx_it.o: ../Core/Inc/stm32g0xx_it.h
 rtk\stm32g0xx_it.o: ../APP/G431/g431_usart.h
 rtk\stm32g0xx_it.o: ../Core/Inc/usart.h
