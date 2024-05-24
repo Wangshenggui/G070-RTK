@@ -195,30 +195,30 @@ void ConfigRTK(Mod4G_Structure M4G)
     {
         if (M4G.GGA == 1)
         {
-            sprintf(SetStr, "GPGGA %s %s", temp[M4G.COM - 1], Freq_Str);
+            sprintf(SetStr, "GPGGA %s %s\r\n", temp[M4G.COM - 1], Freq_Str);
 #if TEST
             HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
 #else
-            printf("%s\r\n", SetStr);
+            printf("%s", SetStr);
 #endif
             
         }
         if (M4G.RMC == 1)
         {
-            sprintf(SetStr, "GPRMC %s %s", temp[M4G.COM - 1], Freq_Str);
+            sprintf(SetStr, "GPRMC %s %s\r\n", temp[M4G.COM - 1], Freq_Str);
 #if TEST
             HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
 #else
-            printf("%s\r\n", SetStr);
+            printf("%s", SetStr);
 #endif
         }
         if (M4G.GSV == 1)
         {
-            sprintf(SetStr, "GPGSV %s %s", temp[M4G.COM - 1], Freq_Str);
+            sprintf(SetStr, "GPGSV %s %s\r\n", temp[M4G.COM - 1], Freq_Str);
 #if TEST
             HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
 #else
-            printf("%s\r\n", SetStr);
+            printf("%s", SetStr);
 #endif
         }
     }
@@ -226,29 +226,29 @@ void ConfigRTK(Mod4G_Structure M4G)
     {
         if (M4G.GGA == 1)
         {
-            sprintf(SetStr, "GPGGA COM1 %s\r\nGPGGA COM2 %s", Freq_Str, Freq_Str);
+            sprintf(SetStr, "GPGGA COM1 %s\r\nGPGGA COM2 %s\r\n", Freq_Str, Freq_Str);
 #if TEST
             HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
 #else
-            printf("%s\r\n", SetStr);
+            printf("%s", SetStr);
 #endif
         }
         if (M4G.RMC == 1)
         {
-            sprintf(SetStr, "GPRMC COM1 %s\r\nGPRMC COM2 %s", Freq_Str, Freq_Str);
+            sprintf(SetStr, "GPRMC COM1 %s\r\nGPRMC COM2 %s\r\n", Freq_Str, Freq_Str);
 #if TEST
             HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
 #else
-            printf("%s\r\n", SetStr);
+            printf("%s", SetStr);
 #endif
         }
         if (M4G.GSV == 1)
         {
-            sprintf(SetStr, "GPGSV COM2 %s", Freq_Str);
+            sprintf(SetStr, "GPGSV COM2 %s\r\n", Freq_Str);
 #if TEST
             HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
 #else
-            printf("%s\r\n", SetStr);
+            printf("%s", SetStr);
 #endif
         }
     }
@@ -263,7 +263,7 @@ void ConfigRTK(Mod4G_Structure M4G)
     else if (M4G.COM == 5)
     {
 #if TEST
-        HAL_UART_Transmit(&huart3, (uint8_t*)"unlog com2", strlen("unlog com2"), 1000);
+        HAL_UART_Transmit(&huart3, (uint8_t*)"unlog com2\r\n", strlen("unlog com2\r\n"), 1000);
 #else
         printf("unlog com2\r\n");
 #endif
@@ -273,45 +273,27 @@ void ConfigRTK(Mod4G_Structure M4G)
     {
 #if TEST
         HAL_UART_Transmit(&huart3, (uint8_t*)"unmask BDS\r\n", strlen("unmask BDS\r\n"), 1000);
-#else
-        printf("unmask BDS\r\n");
-#endif
-#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"unmask GAL\r\n", strlen("unmask GAL\r\n"), 1000);
+        HAL_UART_Transmit(&huart3, (uint8_t*)"unmask GPS\r\n", strlen("unmask GPS\r\n"), 1000);
         HAL_UART_Transmit(&huart3, (uint8_t*)"unmask GLO\r\n", strlen("unmask GLO\r\n"), 1000);
 #else
+        printf("unmask BDS\r\n");
         printf("unmask GLO\r\n");
-#endif
-#if TEST
-        HAL_UART_Transmit(&huart3, (uint8_t*)"unmask GPS\r\n", strlen("unmask GPS\r\n"), 1000);
-#else
         printf("unmask GPS\r\n");
-#endif
-#if TEST
-        HAL_UART_Transmit(&huart3, (uint8_t*)"unmask GAL\r\n", strlen("unmask GAL\r\n"), 1000);
-#else
         printf("unmask GAL\r\n");
 #endif
     }
     else
     {
 #if TEST
-        HAL_UART_Transmit(&huart3, (uint8_t*)"fmask BDS\r\n", strlen("mask BDS\r\n"), 1000);
-#else
-        printf("mask BDS\r\n");
-#endif
-#if TEST
+        HAL_UART_Transmit(&huart3, (uint8_t*)"mask BDS\r\n", strlen("mask BDS\r\n"), 1000);
+        HAL_UART_Transmit(&huart3, (uint8_t*)"mask GAL\r\n", strlen("mask GAL\r\n"), 1000);
+        HAL_UART_Transmit(&huart3, (uint8_t*)"mask GPS\r\n", strlen("mask GPS\r\n"), 1000);
         HAL_UART_Transmit(&huart3, (uint8_t*)"mask GLO\r\n", strlen("mask GLO\r\n"), 1000);
 #else
+        printf("mask BDS\r\n");
         printf("mask GLO\r\n");
-#endif
-#if TEST
-        HAL_UART_Transmit(&huart3, (uint8_t*)"mask GPS\r\n", strlen("mask GPS\r\n"), 1000);
-#else
         printf("mask GPS\r\n");
-#endif
-#if TEST
-        HAL_UART_Transmit(&huart3, (uint8_t*)"mask GAL\r\n", strlen("mask GAL\r\n"), 1000);
-#else
         printf("mask GAL\r\n");
 #endif
     }
@@ -332,6 +314,11 @@ void ConfigRTK(Mod4G_Structure M4G)
         printf("CONFIG ANTENNA2 DISABLE\r\n");
 #endif
     }
+#if TEST
+    HAL_UART_Transmit(&huart3, (uint8_t*)"saveconfig\r\n", strlen("saveconfig\r\n"), 1000);
+#else
+    printf("saveconfig\r\n");
+#endif
 }
 
 
