@@ -353,7 +353,7 @@ void StartRTK_Task(void const* argument)
             taskENTER_CRITICAL();
 
             copyRMCData();//´ó°å
-            //HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
+            HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
 
             taskEXIT_CRITICAL();
         }
