@@ -114,8 +114,8 @@ Section Cross References
     app_freertos.o(i.StartModule4G_Task) refers to usart.o(.bss) for huart1
     app_freertos.o(i.StartModule4G_Task) refers to 4gmodule.o(i.COM_Callback) for COM_Callback
     app_freertos.o(i.StartModule4G_Task) refers to 4gmodule.o(i.GGA_Callback) for GGA_Callback
-    app_freertos.o(i.StartModule4G_Task) refers to 4gmodule.o(i.GSV_Callback) for GSV_Callback
     app_freertos.o(i.StartModule4G_Task) refers to 4gmodule.o(i.RMC_Callback) for RMC_Callback
+    app_freertos.o(i.StartModule4G_Task) refers to 4gmodule.o(i.GSV_Callback) for GSV_Callback
     app_freertos.o(i.StartModule4G_Task) refers to 4gmodule.o(i.Freq_Callback) for Freq_Callback
     app_freertos.o(i.StartModule4G_Task) refers to 4gmodule.o(i.Satellite_Callback) for Satellite_Callback
     app_freertos.o(i.StartModule4G_Task) refers to 4gmodule.o(i.Antenna_Callback) for Antenna_Callback

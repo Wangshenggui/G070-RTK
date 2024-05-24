@@ -281,8 +281,8 @@ void StartModule4G_Task(void const* argument)
 
             Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 0, COM_Callback);
             Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 1, GGA_Callback);
-            Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 2, GSV_Callback);
-            Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 3, RMC_Callback);
+            Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 2, RMC_Callback);
+            Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 3, GSV_Callback);
             Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 4, Freq_Callback);
             Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 5, Satellite_Callback);
             Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 6, Antenna_Callback);
