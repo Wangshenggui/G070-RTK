@@ -73,6 +73,7 @@ uint8_t OutGNxxxData[100];
 void ParseGPRMC(const char* string, int n);
 void ParseGPRMCH(const char* string, int n);
 void ParseGPGGA(const char* string, int n);
+float ParseGPTHS(const char* string);
 void copyRMCData(void);
 void BluetoothCopyRMCData(void);
 

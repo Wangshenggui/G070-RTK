@@ -149,6 +149,17 @@ void USART3_IDLE_Handler()
                     break;
                 }
             }
+            //$GNTHS
+            if (USART3_RxStruct.Buff[i] == 'T')
+            {
+                if (USART3_RxStruct.Buff[i + 1] == 'H'
+                    && USART3_RxStruct.Buff[i + 2] == 'S')
+                {
+                    // Õ∑≈–≈∫≈¡ø
+                    ReleaseBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
+                    break;
+                }
+            }
         }
 
 

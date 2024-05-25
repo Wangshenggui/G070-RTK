@@ -340,7 +340,6 @@ void StartRTK_Task(void const* argument)
 
             const char* delimiter = "\r\n";
 
-            //            HAL_UART_Transmit(&huart1, USART3_RxStruct.Buff, strlen(USART3_RxStruct.Buff),1000);
             separateString((char*)USART3_RxStruct.Buff, delimiter, info1, info2, info3);
             processInfo((uint8_t*)info1, (uint8_t*)info2, (uint8_t*)info3, (uint8_t*)outinfo1, (uint8_t*)outinfo2, (uint8_t*)outinfo3, 100);
 
@@ -348,13 +347,19 @@ void StartRTK_Task(void const* argument)
             {
                 ParseGPRMC((char*)outinfo1, i);
                 ParseGPGGA((char*)outinfo2, i);
-                ParseGPRMCH((char*)outinfo3, i);
+                //ParseGPRMCH((char*)outinfo3, i);
+                ParseGPTHS((char*)outinfo3);
             }
             taskENTER_CRITICAL();
 
             copyRMCData();//´ó°å
-            HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
+            //HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
 
+            float temp = ParseGPTHS((char*)outinfo3);
+            char str[100];
+            sprintf(str,"%f\r\n",temp);
+            HAL_UART_Transmit(&huart1, str, strlen(str),1000);
+            
             taskEXIT_CRITICAL();
         }
         osDelay(1);

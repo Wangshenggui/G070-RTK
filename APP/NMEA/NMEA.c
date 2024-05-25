@@ -357,6 +357,59 @@ void ParseGPGGA(const char* string, int n)
     }
 }
 
+float ParseGPTHS(const char* string)
+{
+    char result[200];
+    unsigned char max_length = 200;
+    const char* start = string;
+
+    int xor_sum = 0;//校验值
+    int i = 0;
+    unsigned char len = 0;//计算字符串长度
+    char checksum_str[3];
+
+    //计算长度
+    while (string[len] != '\0')len++;
+    // 计算数据的异或和
+    for (i = 1; i < len; i++)
+    {
+        if (string[i] == '*')
+            break;
+        xor_sum ^= string[i];
+    }
+    sprintf(checksum_str, "%02X", xor_sum);
+    if (strncmp(checksum_str, (const char*)&string[i + 1], 2) == 0) //通过 
+    {
+        start = strchr(start, ',');
+        if (!start) {
+            // 如果逗号不够n个，将结果设为空字符串
+            result[0] = '\0';
+            return 0;
+        }
+        // 移动到下一个字符
+        start++;
+
+        // 计算逗号后字符串的长度
+        const char* end = strchr(start, ',');
+        size_t length = end ? (size_t)(end - start) : strlen(start);
+
+        // 截取字符串并复制到结果
+        if (length < max_length - 1) {
+            strncpy(result, start, length);
+            // 手动添加 null 结尾
+            result[length] = '\0';
+        }
+        else {
+            // 目标长度不足，截断字符串
+            strncpy(result, start, max_length - 1);
+            result[max_length - 1] = '\0';
+        }
+
+        return atof(result);
+    }
+    return 0;
+}
+
 //将数据复制到OutGNRMCData
 void copyRMCData()
 {
