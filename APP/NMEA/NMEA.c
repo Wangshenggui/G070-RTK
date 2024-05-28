@@ -357,6 +357,7 @@ void ParseGPGGA(const char* string, int n)
     }
 }
 
+extern double AzimuthAngle;
 float ParseGPTHS(const char* string)
 {
     char result[200];
@@ -445,7 +446,7 @@ void copyRMCData()
         double v;
         unsigned char bit[8];
     }GPS_CourseAngle;
-    GPS_CourseAngle.v=GPRMC_Struct.CourseAngle;
+    GPS_CourseAngle.v=AzimuthAngle;
     //º½Ïò½Ç
     OutGNxxxData[13] = GPS_CourseAngle.bit[0];
     OutGNxxxData[14] = GPS_CourseAngle.bit[1];

@@ -317,6 +317,7 @@ void StartModule4G_Task(void const* argument)
 * @param argument: Not used
 * @retval None
 */
+double AzimuthAngle;
 /* USER CODE END Header_StartRTK_Task */
 void StartRTK_Task(void const* argument)
 {
@@ -348,18 +349,19 @@ void StartRTK_Task(void const* argument)
                 ParseGPRMC((char*)outinfo1, i);
                 ParseGPGGA((char*)outinfo2, i);
                 //ParseGPRMCH((char*)outinfo3, i);
-                ParseGPTHS((char*)outinfo3);
+                AzimuthAngle = ParseGPTHS((char*)outinfo3);
             }
             taskENTER_CRITICAL();
 
-            copyRMCData();//´ó°å
-            //HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
-
-            float temp = ParseGPTHS((char*)outinfo3);
-            char str[100];
-            sprintf(str,"%f\r\n",temp);
-            HAL_UART_Transmit(&huart1, str, strlen(str),1000);
             
+//            float temp = ParseGPTHS((char*)outinfo3);
+//            char str[100];
+//            sprintf(str,"%f\r\n",temp);
+//            HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str),1000);
+            
+            copyRMCData();//´ó°å
+            HAL_UART_Transmit(&huart1, OutGNxxxData, 78,1000);
+
             taskEXIT_CRITICAL();
         }
         osDelay(1);

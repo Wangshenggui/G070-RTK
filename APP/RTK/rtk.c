@@ -117,38 +117,38 @@ void USART3_IDLE_Handler()
 
         for (uint8_t i = 0; i < USART3_RxStruct.Rx_len - 10; i++)
         {
-            if (USART3_RxStruct.Buff[i] == 'R')
-            {
-                if (USART3_RxStruct.Buff[i + 1] == 'M'
-                    && USART3_RxStruct.Buff[i + 2] == 'C'
-                    && USART3_RxStruct.Buff[i + 3] == ',')
-                {
-                    //释放信号量
-                    ReleaseBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
-                    break;
-                }
-            }
-            if (USART3_RxStruct.Buff[i] == 'G')
-            {
-                if (USART3_RxStruct.Buff[i + 1] == 'G'
-                    && USART3_RxStruct.Buff[i + 2] == 'A')
-                {
-                    //释放信号量
-                    ReleaseBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
-                    break;
-                }
-            }
-            if (USART3_RxStruct.Buff[i] == 'R')
-            {
-                if (USART3_RxStruct.Buff[i + 1] == 'M'
-                    && USART3_RxStruct.Buff[i + 2] == 'C'
-                    && USART3_RxStruct.Buff[i + 3] == 'H')
-                {
-                    //释放信号量
-                    ReleaseBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
-                    break;
-                }
-            }
+//            if (USART3_RxStruct.Buff[i] == 'R')
+//            {
+//                if (USART3_RxStruct.Buff[i + 1] == 'M'
+//                    && USART3_RxStruct.Buff[i + 2] == 'C'
+//                    && USART3_RxStruct.Buff[i + 3] == ',')
+//                {
+//                    //释放信号量
+//                    ReleaseBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
+//                    break;
+//                }
+//            }
+//            if (USART3_RxStruct.Buff[i] == 'G')
+//            {
+//                if (USART3_RxStruct.Buff[i + 1] == 'G'
+//                    && USART3_RxStruct.Buff[i + 2] == 'A')
+//                {
+//                    //释放信号量
+//                    ReleaseBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
+//                    break;
+//                }
+//            }
+//            if (USART3_RxStruct.Buff[i] == 'R')
+//            {
+//                if (USART3_RxStruct.Buff[i + 1] == 'M'
+//                    && USART3_RxStruct.Buff[i + 2] == 'C'
+//                    && USART3_RxStruct.Buff[i + 3] == 'H')
+//                {
+//                    //释放信号量
+//                    ReleaseBinarySemaphore(BinarySemaphore.RTK_RxRMCBinarySemHandle);
+//                    break;
+//                }
+//            }
             //$GNTHS
             if (USART3_RxStruct.Buff[i] == 'T')
             {

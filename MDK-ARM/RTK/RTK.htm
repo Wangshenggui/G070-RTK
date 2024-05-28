@@ -3,9 +3,9 @@
 <title>Static Call Graph - [RTK\RTK.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image RTK\RTK.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sat May 25 12:57:36 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Tue May 28 09:38:06 2024
 <BR><P>
-<H3>Maximum Stack Usage =       1064 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        968 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 StartRTK_Task &rArr; ParseGPTHS &rArr; atof &rArr; __strtod_int &rArr; _local_sscanf &rArr; _scanf_real
 <P>
@@ -423,7 +423,6 @@ Global Symbols
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPRMC
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPGGA
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConfigRTK
-<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartRTK_Task
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartModule4G_Task
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_FLASH_Read
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseCORS
@@ -532,7 +531,6 @@ Global Symbols
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPGGA
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Parse4G_RTKConfig
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConfigRTK
-<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartRTK_Task
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartModule4G_Task
 <LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;base64_encode
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseCORS
@@ -708,7 +706,7 @@ Global Symbols
 
 <P><STRONG><a name="[1a4]"></a>_dfltu</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflti.o(.text), UNUSED)
 
-<P><STRONG><a name="[11e]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, f2d.o(.text))
+<P><STRONG><a name="[11d]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, f2d.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartRTK_Task
 </UL>
 
@@ -1023,7 +1021,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[41]"></a>_scanf_really_hex_real</STRONG> (Thumb, 806 bytes, Stack size 72 bytes, scanf_hexfp.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = _scanf_really_hex_real &rArr; __mathlib_narrow &rArr; __mathlib_tofloat &rArr; frexp &rArr; __ARM_scalbn
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = _scanf_really_hex_real &rArr; __mathlib_narrow &rArr; __mathlib_tofloat &rArr; __aeabi_cdrcmple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_narrow
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_chval
@@ -1062,10 +1060,10 @@ Global Symbols
 <P><STRONG><a name="[12e]"></a>__ARM_scalbn</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, dscalbn.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;frexp
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
+<BR>[Called By]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_overflow
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ldexp
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;frexp
 </UL>
 
 <P><STRONG><a name="[ae]"></a>__fpl_cmpreturn</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, cmpret.o(.text), UNUSED)
@@ -1842,8 +1840,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_freertos.o(.constdata)
 </UL>
-<P><STRONG><a name="[46]"></a>StartRTK_Task</STRONG> (Thumb, 158 bytes, Stack size 712 bytes, app_freertos.o(i.StartRTK_Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1064 + Unknown Stack Size
+<P><STRONG><a name="[46]"></a>StartRTK_Task</STRONG> (Thumb, 140 bytes, Stack size 616 bytes, app_freertos.o(i.StartRTK_Task))
+<BR><BR>[Stack]<UL><LI>Max Depth = 968 + Unknown Stack Size
 <LI>Call Chain = StartRTK_Task &rArr; ParseGPTHS &rArr; atof &rArr; __strtod_int &rArr; _local_sscanf &rArr; _scanf_real
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
@@ -1851,15 +1849,13 @@ Global Symbols
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;separateString
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;processInfo
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
-<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyRMCData
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyRMCData
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPTHS
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPRMC
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseGPGGA
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
-<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_freertos.o(.constdata)
 </UL>
@@ -1994,15 +1990,15 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g070xx.o(RESET)
 </UL>
 <P><STRONG><a name="[26]"></a>USART3_4_IRQHandler</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, stm32g0xx_it.o(i.USART3_4_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = USART3_4_IRQHandler &rArr; USART3_IDLE_Handler &rArr; HAL_UART_Receive_DMA &rArr; UART_Start_Receive_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
+<BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = USART3_4_IRQHandler &rArr; USART3_IDLE_Handler &rArr; HAL_UART_Receive_DMA &rArr; UART_Start_Receive_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IDLE_Handler
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g070xx.o(RESET)
 </UL>
-<P><STRONG><a name="[129]"></a>USART3_IDLE_Handler</STRONG> (Thumb, 194 bytes, Stack size 24 bytes, rtk.o(i.USART3_IDLE_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = USART3_IDLE_Handler &rArr; HAL_UART_Receive_DMA &rArr; UART_Start_Receive_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
+<P><STRONG><a name="[129]"></a>USART3_IDLE_Handler</STRONG> (Thumb, 128 bytes, Stack size 16 bytes, rtk.o(i.USART3_IDLE_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = USART3_IDLE_Handler &rArr; HAL_UART_Receive_DMA &rArr; UART_Start_Receive_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vClearInterruptMaskFromISR
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ulSetInterruptMaskFromISR
@@ -2070,7 +2066,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[a8]"></a>__mathlib_narrow</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, narrow.o(i.__mathlib_narrow))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = __mathlib_narrow &rArr; __mathlib_tofloat &rArr; frexp &rArr; __ARM_scalbn
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = __mathlib_narrow &rArr; __mathlib_tofloat &rArr; __aeabi_cdrcmple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_tofloat
 </UL>
@@ -2079,13 +2075,13 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[130]"></a>__mathlib_tofloat</STRONG> (Thumb, 130 bytes, Stack size 24 bytes, narrow.o(i.__mathlib_tofloat))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = __mathlib_tofloat &rArr; frexp &rArr; __ARM_scalbn
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = __mathlib_tofloat &rArr; __aeabi_cdrcmple
 </UL>
-<BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;frexp
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<BR>[Calls]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmpeq
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;frexp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_narrow
 </UL>
@@ -2123,7 +2119,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[11d]"></a>copyRMCData</STRONG> (Thumb, 556 bytes, Stack size 16 bytes, nmea.o(i.copyRMCData))
+<P><STRONG><a name="[11e]"></a>copyRMCData</STRONG> (Thumb, 552 bytes, Stack size 16 bytes, nmea.o(i.copyRMCData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = copyRMCData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartRTK_Task
