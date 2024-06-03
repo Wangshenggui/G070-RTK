@@ -287,18 +287,18 @@ void StartModule4G_Task(void const* argument)
             Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 5, Satellite_Callback);
             Parse4G_RTKConfig((char*)USART2_RxStruct.Buff, 6, Antenna_Callback);
 
-            uint8_t temp[200] = { 0 };
+//            uint8_t temp[200] = { 0 };
 
-            sprintf((char*)temp, "%d--%d--%d--%d--%d--%d--%d",
-                Mod4G_Struct.COM,
-                Mod4G_Struct.GGA,
-                Mod4G_Struct.GSV,
-                Mod4G_Struct.RMC,
-                Mod4G_Struct.Freq,
-                Mod4G_Struct.Satellite,
-                Mod4G_Struct.Antenna
-            );
-            HAL_UART_Transmit(&huart1, temp, strlen((char*)temp), 1000);
+//            sprintf((char*)temp, "%d--%d--%d--%d--%d--%d--%d",
+//                Mod4G_Struct.COM,
+//                Mod4G_Struct.GGA,
+//                Mod4G_Struct.GSV,
+//                Mod4G_Struct.RMC,
+//                Mod4G_Struct.Freq,
+//                Mod4G_Struct.Satellite,
+//                Mod4G_Struct.Antenna
+//            );
+//            HAL_UART_Transmit(&huart1, temp, strlen((char*)temp), 1000);
             //…Ë÷√RTK
             ConfigRTK(Mod4G_Struct);
 

@@ -212,7 +212,7 @@ void ConfigRTK(Mod4G_Structure M4G)
 #else
             printf("%s", SetStr);
 #endif
-            
+
         }
         if (M4G.RMC == 1)
         {
@@ -225,7 +225,7 @@ void ConfigRTK(Mod4G_Structure M4G)
         }
         if (M4G.GSV == 1)
         {
-            sprintf(SetStr, "GPGSV %s %s\r\n", temp[M4G.COM - 1], Freq_Str);
+            sprintf(SetStr, "GPTHS %s %s\r\n", temp[M4G.COM - 1], Freq_Str);
 #if TEST
             HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
 #else
@@ -255,7 +255,7 @@ void ConfigRTK(Mod4G_Structure M4G)
         }
         if (M4G.GSV == 1)
         {
-            sprintf(SetStr, "GPGSV COM2 %s\r\n", Freq_Str);
+            sprintf(SetStr, "GPTHS COM1 %s\r\nGPTHS COM2 %s\r\n", Freq_Str, Freq_Str);
 #if TEST
             HAL_UART_Transmit(&huart3, (uint8_t*)SetStr, strlen(SetStr), 1000);
 #else
