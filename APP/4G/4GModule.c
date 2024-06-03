@@ -235,7 +235,7 @@ void GGA_Callback(const char* result)
 
 void GSV_Callback(const char* result) 
 {
-    Mod4G_Struct.GSV = result[0] - 0x30;
+    Mod4G_Struct.THS = result[0] - 0x30;
 }
 
 void RMC_Callback(const char* result) 

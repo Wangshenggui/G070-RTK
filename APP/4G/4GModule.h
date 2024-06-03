@@ -33,7 +33,7 @@ typedef struct
     uint8_t Freq : 4;
     uint8_t GGA : 1;
 
-    uint8_t GSV : 1;
+    uint8_t THS : 1;
     uint8_t RMC : 1;
     uint8_t Satellite : 1;
     uint8_t Antenna : 1;

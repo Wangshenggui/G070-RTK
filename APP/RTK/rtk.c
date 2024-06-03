@@ -223,7 +223,7 @@ void ConfigRTK(Mod4G_Structure M4G)
             printf("%s", SetStr);
 #endif
         }
-        if (M4G.GSV == 1)
+        if (M4G.THS == 1)
         {
             sprintf(SetStr, "GPTHS %s %s\r\n", temp[M4G.COM - 1], Freq_Str);
 #if TEST
@@ -253,7 +253,7 @@ void ConfigRTK(Mod4G_Structure M4G)
             printf("%s", SetStr);
 #endif
         }
-        if (M4G.GSV == 1)
+        if (M4G.THS == 1)
         {
             sprintf(SetStr, "GPTHS COM1 %s\r\nGPTHS COM2 %s\r\n", Freq_Str, Freq_Str);
 #if TEST
