@@ -297,6 +297,40 @@ void StartModule4G_Task(void const* argument)
                 //向控制板（大板）发送控制指令
                 HAL_UART_Transmit(&huart1, Modules4G_Struct.TxBuff, 8, 1000);
             }
+            if(Modules4G_Struct.Speed[0] == 66 
+                && Modules4G_Struct.Speed[1] == 66 && 
+            Modules4G_Struct.Speed[2] == 66 && 
+            Modules4G_Struct.Speed[3] == 66)
+            {
+                Modules4G_Struct.TxBuff[0] = 0xeb;
+                Modules4G_Struct.TxBuff[1] = 66;
+                Modules4G_Struct.TxBuff[2] = 66;
+                Modules4G_Struct.TxBuff[3] = 66;
+                Modules4G_Struct.TxBuff[4] = 66;
+                Modules4G_Struct.TxBuff[5] = 66;
+                Modules4G_Struct.TxBuff[6] = 66;
+                Modules4G_Struct.TxBuff[7] = 0x90;
+                
+                //向控制板（大板）发送控制指令
+                HAL_UART_Transmit(&huart1, Modules4G_Struct.TxBuff, 8, 1000);
+            }
+            if(Modules4G_Struct.Speed[0] == 55 
+                && Modules4G_Struct.Speed[1] == 55 && 
+            Modules4G_Struct.Speed[2] == 55 && 
+            Modules4G_Struct.Speed[3] == 55)
+            {
+                Modules4G_Struct.TxBuff[0] = 0xeb;
+                Modules4G_Struct.TxBuff[1] = 55;
+                Modules4G_Struct.TxBuff[2] = 55;
+                Modules4G_Struct.TxBuff[3] = 55;
+                Modules4G_Struct.TxBuff[4] = 55;
+                Modules4G_Struct.TxBuff[5] = 55;
+                Modules4G_Struct.TxBuff[6] = 55;
+                Modules4G_Struct.TxBuff[7] = 0x90;
+                
+                //向控制板（大板）发送控制指令
+                HAL_UART_Transmit(&huart1, Modules4G_Struct.TxBuff, 8, 1000);
+            }
             else
             {
                 Modules4G_Struct.TxBuff[0] = 0xeb;
